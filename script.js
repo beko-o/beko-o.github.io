@@ -1,17 +1,64 @@
-// Reveal elements on scroll
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-    for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const revealPoint = 150;
+// ======== 1. Reveal on Scroll с помощью IntersectionObserver ========
+document.addEventListener('DOMContentLoaded', function () {
+	const reveals = document.querySelectorAll('.reveal');
 
-        if (elementTop < windowHeight - revealPoint) {
-            reveals[i].classList.add('active');
-        }
-    }
-}
+	const options = {
+		root: null,
+		rootMargin: '0px',
+		threshold: 0.15,
+	};
 
-window.addEventListener('scroll', revealOnScroll);
-// Trigger on load
-window.addEventListener('DOMContentLoaded', revealOnScroll);
+	const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('active');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, options);
+
+	reveals.forEach(element => {
+		revealOnScroll.observe(element);
+	});
+});
+
+// ======== 2. Плавный Scroll Spy для навигации ========
+window.addEventListener('scroll', function () {
+	const sections = document.querySelectorAll('section');
+	const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+	sections.forEach(sec => {
+		const top = sec.offsetTop - 100; // небольшая корректировка
+		const bottom = top + sec.offsetHeight;
+
+		const id = sec.getAttribute('id');
+		const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+
+		if (scrollPos >= top && scrollPos < bottom) {
+			document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+			if (navLink) navLink.classList.add('active');
+		}
+	});
+});
+
+// ======== 3. Кнопка "Back to Top" ========
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+	if (window.pageYOffset > 300) {
+		backToTopBtn.classList.add('show');
+	} else {
+		backToTopBtn.classList.remove('show');
+	}
+});
+backToTopBtn.addEventListener('click', () => {
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ======== 4. Дополнительные эффекты (например, плавная загрузка хедера) ========
+window.addEventListener('load', () => {
+	const headerText = document.querySelectorAll('.fade-in');
+	headerText.forEach(el => {
+		// чтобы сработал CSS-анимация (fadeInUp + delay)
+		el.style.visibility = 'visible';
+	});
+});
