@@ -1,41 +1,62 @@
-/* =====================================
-   =       BASIC RESET + OVERRIDES      =
-   ===================================== */
+/* ===========================================
+   =     0. УБИРАЕМ ДВОЙНОЙ СКРОЛ,            =
+   =     ОСТАВЛЯЕМ ТОЛЬКО ОБЩИЙ У BODY       =
+   =========================================== */
 
-/* Обязательно первым делом — сбрасываем двойной скролл:
-   запретили <html> прокрутку, а дали всё телу страницы (<body>) */
-   html {
-	height: 100%;
-	overflow-y: hidden;
-	/* горизонтальный скролл всё ещё выключен через body */
+/* 0.1. ОТКЛЮЧАЕМ любой скролл у <html>          */
+html {
+	height: auto;           /* Не «100%» и не «100vh» */
+	overflow-x: hidden;     /* Горизонтального скролла не будет */
+	overflow-y: hidden;     /* Временно убираем прокрутку у html */
   }
   
+  /* 0.2. ВКЛЮЧАЕМ прокрутку только у <body>       */
   body {
-	min-height: 100%;
+	min-height: 100vh;      /* Гарантируем, что body будет минимум размер экрана */
 	margin: 0;
 	padding: 0;
-	overflow-y: auto;
-	overflow-x: hidden; /* если по горизонтали всё ещё не нужно скролить */
+	overflow-x: hidden;     /* Всё ещё без горизонтального скролла */
+	overflow-y: auto;       /* Только здесь может быть вертикальный скролл */
 	font-family: 'Poppins', sans-serif;
 	background-color: #1e1e1e;
 	color: #f0f0f0;
   }
   
-  /* Общая «сбросная» сетка */
+  /* 0.3. ПЕРЕОПРЕДЕЛЯЕМ все «обёрточные» контейнеры,
+		 которых может добавить Jekyll/GitHub Pages.
+		 Это важно, чтобы никакой другой div не создавал свой скролл. */
+	
+  /* Например, многие темы Jekyll оборачивают контент в <div class="site-wrapper"> или <div id="page">. 
+	 Приведём универсальные примеры: */
+  #page,
+  .site-wrapper,
+  .wrapper,
+  #wrapper,
+  .content-wrapper,
+  .page-wrapper {
+	/* Если вы точно знаете, какой div появляется у вас на GitHub Pages—поставьте его селектор сюда.
+	   Можно поставить и «*», но лучше точечечно. */
+	overflow: visible !important;   /* чтобы этот контейнер не создавал внутренний скролл */
+	height: auto !important;        /* чтобы этот контейнер не резал высоту «в экран» */
+  }
+  
+  /*========================================
+	1. БАЗОВЫЙ RESET и ОБЩИЕ СТИЛИ
+	=======================================*/
   * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
   }
   
-  /* =====================================
-	 =     COMMON CLASSES & SECTION       =
-	 ===================================== */
+  /*========================================
+	2. ОБЩИЕ КЛАССЫ ДЛЯ СЕКЦИЙ
+	=======================================*/
   .section {
 	padding: 80px 20px;
 	max-width: 1000px;
 	margin: 0 auto;
-	overflow: visible; /* не создаём «вторичный» скролл внутри секций */
+	overflow: visible; /* Ни при каком раскладе не создаём внутренний скролл */
   }
   .section h2 {
 	font-size: 2.5em;
@@ -50,15 +71,15 @@
 	line-height: 1.6;
   }
   
-  /* Тёмный фон для всех секций */
+  /* Все секции — тёмные */
   .section-dark {
 	background-color: #1e1e1e;
 	color: #f0f0f0;
   }
   
-  /* =====================================
-	 =             TYPOGRAPHY             =
-	 ===================================== */
+  /*========================================
+	3. TYPOGRAPHY
+	=======================================*/
   h1,
   h2,
   h3 {
@@ -74,20 +95,19 @@
 	line-height: 1.5;
   }
   
-  /* =====================================
-	 =    HEADER & NAVIGATION STYLES      =
-	 ===================================== */
+  /*========================================
+	4. HEADER & NAVIGATION
+	=======================================*/
   .header {
 	position: relative;
-	min-height: 100vh; /* шапка занимает минимум полный экран */
+	min-height: 100vh; /* Шапка — минимум на весь экран */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	background: url('https://your-background-image-url.jpg') center center / cover no-repeat;
-	/* УБРАЛИ overflow: hidden; */
+	/* УБРАЛИ overflow: hidden; чтобы не «обрезать» контент в шапке */
   }
-  
   .header .overlay {
 	position: absolute;
 	top: 0;
@@ -97,24 +117,21 @@
 	background: rgba(0, 0, 0, 0.65);
 	z-index: 1;
   }
-  
   .header .inner {
 	position: relative;
 	z-index: 2;
 	padding: 0 20px;
   }
-  
   .name-highlight {
 	color: #ffd700;
   }
-  
   .header p {
 	font-size: 1.2em;
 	margin-top: 0.5em;
 	margin-bottom: 1.5em;
   }
   
-  /* Навигационное меню */
+  /* NAV */
   .nav-list {
 	list-style: none;
 	display: flex;
@@ -176,9 +193,9 @@
 	text-decoration: none;
   }
   
-  /* =====================================
-	 =       PROJECTS GRID & CARDS        =
-	 ===================================== */
+  /*========================================
+	5. PROJECTS GRID
+	=======================================*/
   .projects-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -195,10 +212,10 @@
 	border-radius: 12px;
 	transition: transform 0.4s ease, background-color 0.4s ease;
 	position: relative;
-	overflow: hidden; /* чтобы псевдоэлемент при hover правильно обрезался */
+	overflow: hidden;
   }
   .project-link .project-card {
-	cursor: pointer; /* обозначаем, что карточка кликабельна */
+	cursor: pointer;
   }
   .project-card h3 {
 	margin-bottom: 0.7em;
@@ -236,9 +253,9 @@
 	height: 200%;
   }
   
-  /* =====================================
-	 =         SKILLS SECTION             =
-	 ===================================== */
+  /*========================================
+	6. SKILLS SECTION
+	=======================================*/
   .skills-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -273,9 +290,9 @@
 	color: #ccc;
   }
   
-  /* =====================================
-	 =        CONTACT SECTION             =
-	 ===================================== */
+  /*========================================
+	7. CONTACT SECTION
+	=======================================*/
   .contact-list {
 	list-style: none;
 	display: flex;
@@ -299,9 +316,9 @@
 	text-decoration: underline;
   }
   
-  /* =====================================
-	 =      REVEAL & FADE-IN EFFECTS       =
-	 ===================================== */
+  /*========================================
+	8. REVEAL & FADE-IN EFFECTS
+	=======================================*/
   .reveal {
 	opacity: 0;
 	transform: translateY(30px);
@@ -330,9 +347,9 @@
   .delay-5 { animation-delay: 1.5s; }
   .delay-6 { animation-delay: 1.8s; }
   
-  /* =====================================
-	 =      BACK TO TOP BUTTON STYLE       =
-	 ===================================== */
+  /*========================================
+	9. BACK TO TOP BUTTON
+	=======================================*/
   #backToTop {
 	position: fixed;
 	bottom: 30px;
@@ -363,9 +380,9 @@
 	visibility: visible;
   }
   
-  /* =====================================
-	 =      RESPONSIVE RULES (MEDIA)       =
-	 ===================================== */
+  /*========================================
+   10. RESPONSIVE RULES
+   =======================================*/
   @media (max-width: 768px) {
 	h1 {
 	  font-size: 2.2em;
@@ -382,19 +399,19 @@
 	}
   }
   
-  /* =====================================
-	 =      ПЛАВНЫЙ СКРОЛЛ (ЯКОРЯ)         =
-	 ===================================== */
+  /*========================================
+   11. SMOOTH SCROLL (ЯКОРЯ)
+   =======================================*/
   html {
 	scroll-behavior: smooth;
   }
   
-  /* =====================================
-	 =      ОТСТУП ДЛЯ ЯКОРА (ANCHOR)      =
-	 ===================================== */
-  /* Если у вас фиксированная шапка, и вы хотите, чтобы заголовок секции не «прятался» за ней, 
-	 задайте scroll-margin-top равным высоте шапки (например, 80px). */
+  /*========================================
+   12. ANCHOR OFFSET ДЛЯ ФИКС.ВЕРХА
+   =======================================*/
+  /* Если у вас фиксированная шапка (header) по высоте 80px,
+	 то scroll-margin-top: 80px не позволит контенту «скрываться» за шапкой. */
   section {
-	scroll-margin-top: 80px;
+	scroll-margin-top: 80px; 
   }
   
