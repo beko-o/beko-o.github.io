@@ -1,65 +1,66 @@
-// ======== 1. Reveal on Scroll с помощью IntersectionObserver ========
-document.addEventListener('DOMContentLoaded', function () {
-	const reveals = document.querySelectorAll('.reveal');
+/**
+ * Здесь нет никакой «logики скролла» в стиле
+ * window.addEventListener('scroll', ...) для подсчёта offsetTop, 
+ * никакой ручной проверкb scrollPos и т. д.
+ *
+ * Мы используем только IntersectionObserver, чтобы:
+ * 1) Подсветить активный пункт меню (scroll-spy);
+ * 2) Показать/скрыть кнопку "Back to Top" (по sentinel-а);
+ * 3) (Анимации для контента мы отдали AOS);
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+	// 1. ============ SCROLL-SPY (подсветка активного пункта меню) ============
+	const sections = document.querySelectorAll('section, header');
+	const navLinks = document.querySelectorAll('.nav-link');
   
-	const options = {
+	const observerOptions = {
 	  root: null,
 	  rootMargin: '0px',
-	  threshold: 0.01, // чуть ниже, чтобы анимация точно срабатывала
+	  threshold: 0.6, 
+	  // 0.6 => считаем секцию «активной», когда 60% её высоты влезает в viewport
 	};
   
-	const revealOnScroll = new IntersectionObserver(function (entries, observer) {
-	  entries.forEach((entry) => {
+	const sectionObserver = new IntersectionObserver((entries) => {
+	  entries.forEach(entry => {
+		const id = entry.target.getAttribute('id');
 		if (entry.isIntersecting) {
-		  entry.target.classList.add('active');
-		  observer.unobserve(entry.target);
+		  // Сбросим у всех nav-link класс 'active'
+		  navLinks.forEach(link => link.classList.remove('active'));
+		  // Добавим класс только тому, чей href совпадает с ID секции
+		  const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+		  if (activeLink) {
+			activeLink.classList.add('active');
+		  }
 		}
 	  });
-	}, options);
+	}, observerOptions);
   
-	reveals.forEach((element) => {
-	  revealOnScroll.observe(element);
+	sections.forEach(sec => {
+	  // Обрабатываем header + все section'ы
+	  sectionObserver.observe(sec);
 	});
-  });
   
-  // ======== 2. Плавный Scroll Spy для навигации ========
-  window.addEventListener('scroll', function () {
-	const sections = document.querySelectorAll('section');
-	const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
   
-	sections.forEach((sec) => {
-	  const top = sec.offsetTop - 100; // немного сдвигаем «точку активации»
-	  const bottom = top + sec.offsetHeight;
+	// 2. ============ Back-to-Top Button через IntersectionObserver ============
+	const backToTopBtn = document.getElementById('backToTop');
+	const topSentinel = document.getElementById('top-sentinel');
   
-	  const id = sec.getAttribute('id');
-	  const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
-  
-	  if (scrollPos >= top && scrollPos < bottom) {
-		document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));
-		if (navLink) navLink.classList.add('active');
-	  }
+	const sentinelObserver = new IntersectionObserver((entries) => {
+	  entries.forEach(entry => {
+		if (!entry.isIntersecting) {
+		  // Если sentinel (начало страницы) вышел из видимости — показываем кнопку
+		  backToTopBtn.classList.add('show');
+		} else {
+		  // Если sentinel снова в зоне видимости (мы вверху) — скрываем кнопку
+		  backToTopBtn.classList.remove('show');
+		}
+	  });
 	});
-  });
+	sentinelObserver.observe(topSentinel);
   
-  // ======== 3. Кнопка "Back to Top" ========
-  const backToTopBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-	if (window.pageYOffset > 300) {
-	  backToTopBtn.classList.add('show');
-	} else {
-	  backToTopBtn.classList.remove('show');
-	}
-  });
-  backToTopBtn.addEventListener('click', () => {
-	window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  
-  // ======== 4. Дополнительные эффекты (например, плавная загрузка хедера) ========
-  window.addEventListener('load', () => {
-	const headerText = document.querySelectorAll('.fade-in');
-	headerText.forEach((el) => {
-	  // чтобы сработала CSS-анимация (fadeInUp + delay)
-	  el.style.visibility = 'visible';
+	backToTopBtn.addEventListener('click', () => {
+	  window.scrollTo({ top: 0, behavior: 'smooth' });
 	});
   });
   
