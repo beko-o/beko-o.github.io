@@ -1,66 +1,76 @@
-/**
- * Здесь нет никакой «logики скролла» в стиле
- * window.addEventListener('scroll', ...) для подсчёта offsetTop, 
- * никакой ручной проверкb scrollPos и т. д.
- *
- * Мы используем только IntersectionObserver, чтобы:
- * 1) Подсветить активный пункт меню (scroll-spy);
- * 2) Показать/скрыть кнопку "Back to Top" (по sentinel-а);
- * 3) (Анимации для контента мы отдали AOS);
- */
-
+// ======== 1. Функция для показа нужной страницы и скрытия остальных ========
 document.addEventListener('DOMContentLoaded', () => {
-	// 1. ============ SCROLL-SPY (подсветка активного пункта меню) ============
-	const sections = document.querySelectorAll('section, header');
-	const navLinks = document.querySelectorAll('.nav-link');
-  
-	const observerOptions = {
-	  root: null,
-	  rootMargin: '0px',
-	  threshold: 0.6, 
-	  // 0.6 => считаем секцию «активной», когда 60% её высоты влезает в viewport
-	};
-  
-	const sectionObserver = new IntersectionObserver((entries) => {
-	  entries.forEach(entry => {
-		const id = entry.target.getAttribute('id');
-		if (entry.isIntersecting) {
-		  // Сбросим у всех nav-link класс 'active'
-		  navLinks.forEach(link => link.classList.remove('active'));
-		  // Добавим класс только тому, чей href совпадает с ID секции
-		  const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
-		  if (activeLink) {
-			activeLink.classList.add('active');
-		  }
-		}
-	  });
-	}, observerOptions);
-  
-	sections.forEach(sec => {
-	  // Обрабатываем header + все section'ы
-	  sectionObserver.observe(sec);
-	});
-  
-  
-	// 2. ============ Back-to-Top Button через IntersectionObserver ============
+	const pages = document.querySelectorAll('.page');
+	const navButtons = document.querySelectorAll('.nav-btn');
 	const backToTopBtn = document.getElementById('backToTop');
-	const topSentinel = document.getElementById('top-sentinel');
   
-	const sentinelObserver = new IntersectionObserver((entries) => {
-	  entries.forEach(entry => {
-		if (!entry.isIntersecting) {
-		  // Если sentinel (начало страницы) вышел из видимости — показываем кнопку
-		  backToTopBtn.classList.add('show');
+	// Показывает страницу с id=pageId, скрывает остальные
+	function showPage(pageId) {
+	  pages.forEach(page => {
+		if (page.id === pageId) {
+		  page.classList.add('active');
+		  // Триггерим анимации внутри страницы
+		  runRevealAnimations(page);
 		} else {
-		  // Если sentinel снова в зоне видимости (мы вверху) — скрываем кнопку
-		  backToTopBtn.classList.remove('show');
+		  page.classList.remove('active');
+		  // Сбрасываем reveal-анимации (чтобы при возвращении на страницу они снова сыграли)
+		  resetRevealAnimations(page);
 		}
 	  });
-	});
-	sentinelObserver.observe(topSentinel);
   
+	  // Обновляем активный пункт меню
+	  navButtons.forEach(btn => {
+		btn.classList.toggle('active', btn.dataset.target === pageId);
+	  });
+  
+	  // Появление/исчезновение кнопки BackToTop
+	  if (pageId === 'page-header') {
+		backToTopBtn.classList.remove('show');
+	  } else {
+		backToTopBtn.classList.add('show');
+	  }
+	}
+  
+	// Изначально показываем Home (Header)
+	showPage('page-header');
+  
+	// Вешаем обработчики на кнопки меню
+	navButtons.forEach(btn => {
+	  btn.addEventListener('click', () => {
+		const targetId = btn.dataset.target;
+		showPage(targetId);
+	  });
+	});
+  
+	// Кнопка стрелка вниз на Header, чтобы перейти в About
+	const scrollBtn = document.querySelector('.scroll-btn');
+	scrollBtn.addEventListener('click', () => {
+	  showPage(scrollBtn.dataset.target);
+	});
+  
+	// Обработчик для BackToTop (возвращение к Header)
 	backToTopBtn.addEventListener('click', () => {
-	  window.scrollTo({ top: 0, behavior: 'smooth' });
+	  showPage('page-header');
 	});
   });
+  
+  // ======== 2. Reveal-анимации внутри каждой страницы ========
+  // При показе страницы обозначенные .reveal-элементы плавно проявляются
+  function runRevealAnimations(pageElement) {
+	const revealItems = pageElement.querySelectorAll('.reveal');
+	revealItems.forEach((item, idx) => {
+	  // Устанавливаем небольшую задержку, чтобы элементы появлялись поочерёдно
+	  setTimeout(() => {
+		item.classList.add('active');
+	  }, idx * 200); // задержка 200ms между элементами
+	});
+  }
+  
+  // Сбрасываем классы reveal, чтобы при повторном заходе на страницу анимация сыграла заново
+  function resetRevealAnimations(pageElement) {
+	const revealItems = pageElement.querySelectorAll('.reveal');
+	revealItems.forEach(item => {
+	  item.classList.remove('active');
+	});
+  }
   
