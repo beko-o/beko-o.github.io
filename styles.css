@@ -7,7 +7,7 @@
 	box-sizing: border-box;
 }
 html, body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* запрещаем горизонтальный скролл */
@@ -71,7 +71,7 @@ p {
     justify-content: center;
     text-align: center;
     background: url('https://your-background-image-url.jpg') center center / cover no-repeat;
-    /* УБРАЛИ overflow: hidden; */
+    /* overflow: hidden удалён */
 }
 .header .overlay {
 	position: absolute;
@@ -180,7 +180,7 @@ p {
 	overflow: hidden;
 }
 .project-link .project-card {
-	cursor: pointer; /* обозначаем, что картка кликабельна */
+	cursor: pointer; /* обозначаем, что карточка кликабельна */
 }
 .project-card h3 {
 	margin-bottom: 0.7em;
@@ -374,4 +374,20 @@ p {
 	.skill-item {
 		padding: 18px;
 	}
+}
+
+/* ===========================
+   =   ПЛАВНЫЙ СКРОЛЛ (ЯКОРЯ)  =
+   =========================== */
+html {
+	scroll-behavior: smooth;
+}
+
+/* ===========================
+   =    ОТСТУП ДЛЯ ЯКОРОЙ    =
+   =========================== */
+/* Если есть фиксированная шапка — настроить, чтобы заголовок секции не закрывался. */
+/* Уберите или измените 80px в зависимости от реальной высоты шапки */
+section {
+	scroll-margin-top: 80px;
 }

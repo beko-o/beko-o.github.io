@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const options = {
 		root: null,
 		rootMargin: '0px',
-		threshold: 0.15,
+		threshold: 0.01, // сделаем порог чуть ниже, чтобы анимация точно срабатывала
 	};
 
 	const revealOnScroll = new IntersectionObserver(function (entries, observer) {
