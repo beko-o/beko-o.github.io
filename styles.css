@@ -1,78 +1,94 @@
-/* ===========================
-   =       BASIC RESET       =
-   =========================== */
-   * {
+/* =====================================
+   =       BASIC RESET + OVERRIDES      =
+   ===================================== */
+
+/* Обязательно первым делом — сбрасываем двойной скролл:
+   запретили <html> прокрутку, а дали всё телу страницы (<body>) */
+   html {
+	height: 100%;
+	overflow-y: hidden;
+	/* горизонтальный скролл всё ещё выключен через body */
+  }
+  
+  body {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	overflow-x: hidden; /* если по горизонтали всё ещё не нужно скролить */
+	font-family: 'Poppins', sans-serif;
+	background-color: #1e1e1e;
+	color: #f0f0f0;
+  }
+  
+  /* Общая «сбросная» сетка */
+  * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
-html, body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-}
-
-/* ===========================
-   =     COMMON CLASSES      =
-   =========================== */
-.section {
+  }
+  
+  /* =====================================
+	 =     COMMON CLASSES & SECTION       =
+	 ===================================== */
+  .section {
 	padding: 80px 20px;
 	max-width: 1000px;
 	margin: 0 auto;
-	/* overflow: visible;  */
-}
-.section h2 {
+	overflow: visible; /* не создаём «вторичный» скролл внутри секций */
+  }
+  .section h2 {
 	font-size: 2.5em;
 	margin-bottom: 0.5em;
 	text-align: center;
 	color: #ffd700;
-}
-.section p {
+  }
+  .section p {
 	font-size: 1.1em;
 	margin-bottom: 1.5em;
 	text-align: center;
 	line-height: 1.6;
-}
-
-/* ### ВСЕ СЕКЦИИ ДЕЛАЕМ ТЁМНЫМИ (нет ярких белых блоков) ### */
-.section-dark {
+  }
+  
+  /* Тёмный фон для всех секций */
+  .section-dark {
 	background-color: #1e1e1e;
 	color: #f0f0f0;
-}
-
-/* ### TYPOGRAPHY ### */
-h1,
-h2,
-h3 {
+  }
+  
+  /* =====================================
+	 =             TYPOGRAPHY             =
+	 ===================================== */
+  h1,
+  h2,
+  h3 {
 	font-weight: 600;
-}
-h1 {
+  }
+  h1 {
 	font-size: 3em;
 	line-height: 1.2;
 	margin-bottom: 0.5em;
-}
-p {
+  }
+  p {
 	font-weight: 300;
 	line-height: 1.5;
-}
-
-/* ===========================
-   =   HEADER & NAV STYLES   =
-   =========================== */
-.header {
-    position: relative;
-    min-height: 100vh; /* теперь это минимальная высота, а не жёсткая */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: url('https://your-background-image-url.jpg') center center / cover no-repeat;
-    /* overflow: hidden удалён */
-}
-.header .overlay {
+  }
+  
+  /* =====================================
+	 =    HEADER & NAVIGATION STYLES      =
+	 ===================================== */
+  .header {
+	position: relative;
+	min-height: 100vh; /* шапка занимает минимум полный экран */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background: url('https://your-background-image-url.jpg') center center / cover no-repeat;
+	/* УБРАЛИ overflow: hidden; */
+  }
+  
+  .header .overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -80,43 +96,46 @@ p {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.65);
 	z-index: 1;
-}
-.header .inner {
+  }
+  
+  .header .inner {
 	position: relative;
 	z-index: 2;
 	padding: 0 20px;
-}
-.name-highlight {
+  }
+  
+  .name-highlight {
 	color: #ffd700;
-}
-.header p {
+  }
+  
+  .header p {
 	font-size: 1.2em;
 	margin-top: 0.5em;
 	margin-bottom: 1.5em;
-}
-
-/* NAVIGATION */
-.nav-list {
+  }
+  
+  /* Навигационное меню */
+  .nav-list {
 	list-style: none;
 	display: flex;
 	justify-content: center;
 	gap: 30px;
-}
-.nav-list li {
+  }
+  .nav-list li {
 	position: relative;
-}
-.nav-link {
+  }
+  .nav-link {
 	color: #f0f0f0;
 	text-decoration: none;
 	font-size: 1em;
 	font-weight: 500;
 	transition: color 0.3s;
-}
-.nav-link:hover,
-.nav-link.active {
+  }
+  .nav-link:hover,
+  .nav-link.active {
 	color: #ffd700;
-}
-.nav-link::after {
+  }
+  .nav-link::after {
 	content: '';
 	position: absolute;
 	bottom: -5px;
@@ -126,78 +145,78 @@ p {
 	height: 2px;
 	background: #ffd700;
 	transition: width 0.3s;
-}
-.nav-link:hover::after,
-.nav-link.active::after {
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
 	width: 50%;
-}
-
-/* SCROLL DOWN ARROW */
-.scroll-down {
+  }
+  
+  /* Стрелка «Scroll Down» */
+  .scroll-down {
 	position: absolute;
 	bottom: 30px;
 	left: 50%;
 	transform: translateX(-50%);
 	font-size: 2em;
-}
-.bounce {
+  }
+  .bounce {
 	animation: bounceY 2s infinite;
-}
-@keyframes bounceY {
+  }
+  @keyframes bounceY {
 	0%,
 	100% {
-		transform: translateX(-50%) translateY(0);
+	  transform: translateX(-50%) translateY(0);
 	}
 	50% {
-		transform: translateX(-50%) translateY(15px);
+	  transform: translateX(-50%) translateY(15px);
 	}
-}
-.scroll-down a {
+  }
+  .scroll-down a {
 	color: #ffd700;
 	text-decoration: none;
-}
-
-/* ===========================
-   =       PROJECTS GRID      =
-   =========================== */
-.projects-grid {
+  }
+  
+  /* =====================================
+	 =       PROJECTS GRID & CARDS        =
+	 ===================================== */
+  .projects-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 30px;
 	margin-top: 40px;
-}
-.project-link {
+  }
+  .project-link {
 	text-decoration: none;
 	color: inherit;
-}
-.project-card {
+  }
+  .project-card {
 	background-color: rgba(255, 255, 255, 0.05);
 	padding: 25px;
 	border-radius: 12px;
 	transition: transform 0.4s ease, background-color 0.4s ease;
 	position: relative;
-	overflow: hidden;
-}
-.project-link .project-card {
+	overflow: hidden; /* чтобы псевдоэлемент при hover правильно обрезался */
+  }
+  .project-link .project-card {
 	cursor: pointer; /* обозначаем, что карточка кликабельна */
-}
-.project-card h3 {
+  }
+  .project-card h3 {
 	margin-bottom: 0.7em;
 	font-size: 1.3em;
 	color: #ffd700;
 	display: flex;
 	align-items: center;
-}
-.project-card p {
+  }
+  .project-card p {
 	font-size: 1em;
 	line-height: 1.5;
 	color: #ccc;
-}
-.project-card:hover {
+  }
+  .project-card:hover {
 	transform: translateY(-8px);
 	background-color: rgba(255, 255, 255, 0.1);
-}
-.project-card::before {
+  }
+  .project-card::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -205,136 +224,124 @@ p {
 	width: 200%;
 	height: 0%;
 	background: linear-gradient(
-		135deg,
-		rgba(255, 215, 0, 0.2),
-		rgba(255, 255, 255, 0.1),
-		rgba(255, 215, 0, 0.2)
+	  135deg,
+	  rgba(255, 215, 0, 0.2),
+	  rgba(255, 255, 255, 0.1),
+	  rgba(255, 215, 0, 0.2)
 	);
 	transition: all 0.7s ease-out;
 	z-index: 1;
-}
-.project-card:hover::before {
+  }
+  .project-card:hover::before {
 	height: 200%;
-}
-
-/* ===========================
-   =      SKILLS SECTION      =
-   =========================== */
-.skills-grid {
+  }
+  
+  /* =====================================
+	 =         SKILLS SECTION             =
+	 ===================================== */
+  .skills-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 	gap: 25px;
 	margin-top: 30px;
-}
-.skill-item {
+  }
+  .skill-item {
 	background-color: rgba(255, 255, 255, 0.05);
 	padding: 20px;
 	border-radius: 10px;
 	transition: transform 0.3s ease, background-color 0.3s ease;
 	position: relative;
 	overflow: hidden;
-}
-.skill-item:hover {
+  }
+  .skill-item:hover {
 	transform: translateY(-5px);
 	background-color: rgba(255, 255, 255, 0.1);
-}
-.skill-item h3 {
+  }
+  .skill-item h3 {
 	display: flex;
 	align-items: center;
 	font-size: 1.2em;
 	margin-bottom: 0.5em;
 	color: #ffd700;
-}
-.skill-item .icon {
+  }
+  .skill-item .icon {
 	margin-right: 8px;
-}
-.skill-item ul {
+  }
+  .skill-item ul {
 	list-style: disc inside;
 	margin-left: 10px;
 	color: #ccc;
-}
-
-/* ===========================
-   =     CONTACT SECTION      =
-   =========================== */
-.contact-list {
+  }
+  
+  /* =====================================
+	 =        CONTACT SECTION             =
+	 ===================================== */
+  .contact-list {
 	list-style: none;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 15px;
 	margin-top: 20px;
-}
-.contact-list li {
+  }
+  .contact-list li {
 	font-size: 1.1em;
 	display: flex;
 	align-items: center;
 	gap: 8px;
-}
-.contact-list a {
+  }
+  .contact-list a {
 	color: #ffd700;
 	text-decoration: none;
 	transition: text-decoration 0.3s;
-}
-.contact-list a:hover {
+  }
+  .contact-list a:hover {
 	text-decoration: underline;
-}
-
-/* ===========================
-   =  REVEAL & FADE-INS CSS   =
-   =========================== */
-.reveal {
+  }
+  
+  /* =====================================
+	 =      REVEAL & FADE-IN EFFECTS       =
+	 ===================================== */
+  .reveal {
 	opacity: 0;
 	transform: translateY(30px);
 	transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-.reveal.active {
+  }
+  .reveal.active {
 	opacity: 1;
 	transform: translateY(0);
-}
-.fade-in {
+  }
+  .fade-in {
 	opacity: 0;
 	transform: translateY(20px);
 	animation: fadeInUp 0.8s forwards;
-}
-@keyframes fadeInUp {
+  }
+  @keyframes fadeInUp {
 	to {
-		opacity: 1;
-		transform: translateY(0);
+	  opacity: 1;
+	  transform: translateY(0);
 	}
-}
-/* Задержки для последовательного появления */
-.delay-1 {
-	animation-delay: 0.3s;
-}
-.delay-2 {
-	animation-delay: 0.6s;
-}
-.delay-3 {
-	animation-delay: 0.9s;
-}
-.delay-4 {
-	animation-delay: 1.2s;
-}
-.delay-5 {
-	animation-delay: 1.5s;
-}
-.delay-6 {
-	animation-delay: 1.8s;
-}
-
-/* ===========================
-   =    BACK TO TOP BUTTON    =
-   =========================== */
-#backToTop {
+  }
+  /* Задержки для последовательного появления */
+  .delay-1 { animation-delay: 0.3s; }
+  .delay-2 { animation-delay: 0.6s; }
+  .delay-3 { animation-delay: 0.9s; }
+  .delay-4 { animation-delay: 1.2s; }
+  .delay-5 { animation-delay: 1.5s; }
+  .delay-6 { animation-delay: 1.8s; }
+  
+  /* =====================================
+	 =      BACK TO TOP BUTTON STYLE       =
+	 ===================================== */
+  #backToTop {
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
-	background-color: #ffd700; /* яркий фон у кнопки */
+	background-color: #ffd700;
 	width: 50px;
 	height: 50px;
 	border: none;
-	border-radius: 50%; /* круглая форма */
+	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -343,50 +350,51 @@ p {
 	visibility: hidden;
 	transition: opacity 0.3s, visibility 0.3s;
 	z-index: 100;
-}
-#backToTop .back-arrow {
-	width: 24px;  /* размер стрелки внутри */
+  }
+  #backToTop .back-arrow {
+	width: 24px;
 	height: 24px;
-}
-#backToTop:hover {
-	background-color: #e5c000; /* чуть темнее при наведении */
-}
-#backToTop.show {
+  }
+  #backToTop:hover {
+	background-color: #e5c000;
+  }
+  #backToTop.show {
 	opacity: 1;
 	visibility: visible;
-}
-
-/* ===========================
-   =     RESPONSIVE RULES     =
-   =========================== */
-@media (max-width: 768px) {
+  }
+  
+  /* =====================================
+	 =      RESPONSIVE RULES (MEDIA)       =
+	 ===================================== */
+  @media (max-width: 768px) {
 	h1 {
-		font-size: 2.2em;
+	  font-size: 2.2em;
 	}
 	.section h2 {
-		font-size: 2em;
+	  font-size: 2em;
 	}
 	.nav-list {
-		gap: 15px;
+	  gap: 15px;
 	}
 	.project-card,
 	.skill-item {
-		padding: 18px;
+	  padding: 18px;
 	}
-}
-
-/* ===========================
-   =   ПЛАВНЫЙ СКРОЛЛ (ЯКОРЯ)  =
-   =========================== */
-html {
+  }
+  
+  /* =====================================
+	 =      ПЛАВНЫЙ СКРОЛЛ (ЯКОРЯ)         =
+	 ===================================== */
+  html {
 	scroll-behavior: smooth;
-}
-
-/* ===========================
-   =    ОТСТУП ДЛЯ ЯКОРОЙ    =
-   =========================== */
-/* Если есть фиксированная шапка — настроить, чтобы заголовок секции не закрывался. */
-/* Уберите или измените 80px в зависимости от реальной высоты шапки */
-section {
+  }
+  
+  /* =====================================
+	 =      ОТСТУП ДЛЯ ЯКОРА (ANCHOR)      =
+	 ===================================== */
+  /* Если у вас фиксированная шапка, и вы хотите, чтобы заголовок секции не «прятался» за ней, 
+	 задайте scroll-margin-top равным высоте шапки (например, 80px). */
+  section {
 	scroll-margin-top: 80px;
-}
+  }
+  
