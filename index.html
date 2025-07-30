@@ -1,247 +1,65 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <title>Bekzat Mustafa – Product Portfolio</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Font Awesome (иконки) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pEcJHXtAq7QU99/dNY7H6f6eI6cqPVol/BX1L8MJm3K0w45X4vQq6SsBu5tXMp3B8Z4uRHx3elztZ9sfnYhQ7Q=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
-  <!-- favicon -->
-  <link rel="icon" type="image/jpeg" href="images/icon.jpg" />
-
-  <!-- Собственный CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ваше Имя – Главная</title>
+  <style>
+    /* Базовые стили */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+    header, footer { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
+    nav ul { display: flex; justify-content: center; list-style: none; }
+    nav ul li { margin: 0 1rem; }
+    nav ul li a { color: #fff; text-decoration: none; }
+    main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2rem; }
+    h1, h2 { margin-bottom: 1rem; }
+    a { color: #0066cc; }
+    footer p { font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 0.5rem 0; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Скрываем стандартный скролл -->
-  <style>body { overflow: hidden; }</style>
-
-  <!-- Кнопка "Back to Top" (она показывает страницу Header) -->
-  <button id="backToTop" title="Back to top">
-    <img src="images/arrow-up.png" alt="Up" class="back-arrow" />
-  </button>
-
-  <!-- МЕНЮ (фиксированный шапочный бар) -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">Bekzat Mustafa</div>
-      <ul class="nav-list">
-        <li><button class="nav-btn" data-target="page-header">Home</button></li>
-        <li><button class="nav-btn" data-target="page-about">About</button></li>
-        <li><button class="nav-btn" data-target="page-projects">Projects</button></li>
-        <li><button class="nav-btn" data-target="page-skills">Skills</button></li>
-        <li><button class="nav-btn" data-target="page-contact">Contact</button></li>
+  <header>
+    <h1>Ваше Имя</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#experience">Опыт</a></li>
+        <li><a href="#contact">Контакты</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <!-- Обёртка всех "страниц" -->
-  <div class="pages-wrapper">
-    <!-- ================== HEADER PAGE ================== -->
-    <section id="page-header" class="page active">
-      <div class="header-content">
-        <h1 class="fade-in">I’m <span class="name-highlight">Bekzat Mustafa</span></h1>
-        <p class="fade-in delay-1">
-          2 years of IT experience<br />
-          Managed several impactful projects as a Product Manager
-        </p>
-        <button class="scroll-btn fade-in delay-2" data-target="page-about">
-          <i class="fas fa-angle-down"></i>
-        </button>
-      </div>
+  <main>
+    <section id="about">
+      <h2>Обо мне</h2>
+      <p><!-- TODO: кратко о себе: кто вы, чем занимаетесь и ваши цели --></p>
     </section>
 
-    <!-- ================== ABOUT PAGE ================== -->
-    <section id="page-about" class="page">
-      <div class="inner">
-        <h2 class="reveal">About Me</h2>
-        <p class="reveal delay-1">
-          Hi, I’m Bekzat, a Product Manager with 2 years of experience in IT. I specialize in leading
-          projects that combine AI, e-commerce and mobile solutions. My passion is turning ideas into
-          user-centric products that deliver real value.
-        </p>
-      </div>
+    <section id="projects">
+      <h2>Проекты</h2>
+      <!-- TODO: добавить карточки или список ключевых проектов с описанием и ссылками -->
     </section>
 
-    <!-- ================== PROJECTS PAGE ================== -->
-    <section id="page-projects" class="page">
-      <div class="inner">
-        <h2 class="reveal">Projects</h2>
-        <div class="projects-grid">
-          <!-- Open Heart AI Portal -->
-          <a
-            href="https://portal.open-heart.ai/"
-            target="_blank"
-            class="project-link reveal delay-1"
-            rel="noopener noreferrer"
-          >
-            <div class="project-card">
-              <h3>Open Heart AI Portal</h3>
-              <p>
-                An online portal using AI to analyze pacemaker X-rays to identify device model and
-                manufacturer, plus AI to extract key information from pacemaker PDF documents.
-              </p>
-            </div>
-          </a>
-
-          <!-- Toq -->
-          <a
-            href="https://2gis.kz/almaty/branches/70000001100557711?m=76.869248%2C43.242712%2F12.52"
-            target="_blank"
-            class="project-link reveal delay-2"
-            rel="noopener noreferrer"
-          >
-            <div class="project-card">
-              <h3>Toq</h3>
-              <p>
-                Power bank rental throughout Almaty without an app or card binding. Users switch to
-                WhatsApp, agree with a bot, pay via Kaspi, and use the device.
-              </p>
-            </div>
-          </a>
-
-          <!-- Tabys -->
-          <a
-            href="https://tabys.maxinum.kz/"
-            target="_blank"
-            class="project-link reveal delay-3"
-            rel="noopener noreferrer"
-          >
-            <div class="project-card">
-              <h3>Tabys</h3>
-              <p>
-                An e-commerce platform where sellers register, list products, get reviews, and sell
-                international goods with AR preview and group-order discounts.
-              </p>
-            </div>
-          </a>
-
-          <!-- Catholic Sports League Hosts -->
-          <a
-            href="https://play.google.com/store/apps/details?id=com.catholic.sport"
-            target="_blank"
-            class="project-link reveal delay-4"
-            rel="noopener noreferrer"
-          >
-            <div class="project-card">
-              <h3>Catholic Sports League Hosts</h3>
-              <p>
-                A cross-platform mobile app for hosts at Catholic Sports to easily fill out checklists
-                and manage event tasks.
-              </p>
-            </div>
-          </a>
-
-          <!-- Oner (нет внешней ссылки) -->
-          <div class="project-card reveal delay-5">
-            <h3>Oner</h3>
-            <p>
-              Mobile app built with Flutter and Firebase. As Product Owner and Developer, led
-              negotiations securing 1,000,000 KZT investment and implemented Agile practices.
-            </p>
-          </div>
-
-          <!-- Univer-hub (нет внешней ссылки) -->
-          <div class="project-card reveal delay-6">
-            <h3>Univer-hub</h3>
-            <p>
-              Web platform developed with Python, FastAPI, PostgreSQL. As Product Owner, collaborated
-              with developers and led a team including designer, devs, and Scrum Master.
-            </p>
-          </div>
-        </div>
-      </div>
+    <section id="experience">
+      <h2>Опыт работы</h2>
+      <!-- TODO: описать опыт, компании, роли и достижения -->
     </section>
 
-    <!-- ================== SKILLS PAGE ================== -->
-    <section id="page-skills" class="page">
-      <div class="inner">
-        <h2 class="reveal">Skills &amp; Tools</h2>
-        <div class="skills-grid">
-          <div class="skill-item reveal delay-1">
-            <h3><i class="fas fa-cogs icon"></i> Frameworks &amp; Methodologies</h3>
-            <ul>
-              <li>Agile (Scrum, Kanban)</li>
-              <li>Waterfall</li>
-              <li>Lean Startup</li>
-            </ul>
-          </div>
-          <div class="skill-item reveal delay-2">
-            <h3><i class="fas fa-layer-group icon"></i> Development Frameworks</h3>
-            <ul>
-              <li>Django / Django REST</li>
-              <li>Flutter</li>
-              <li>FastAPI</li>
-            </ul>
-          </div>
-          <div class="skill-item reveal delay-3">
-            <h3><i class="fas fa-code icon"></i> Programming Languages</h3>
-            <ul>
-              <li>JavaScript</li>
-              <li>Python</li>
-              <li>C++</li>
-              <li>Dart</li>
-              <li>SQL</li>
-            </ul>
-          </div>
-          <div class="skill-item reveal delay-4">
-            <h3><i class="fas fa-database icon"></i> Databases &amp; Tools</h3>
-            <ul>
-              <li>PostgreSQL, MySQL, MongoDB, Firebase</li>
-              <li>Jupyter (NumPy, Pandas, Matplotlib)</li>
-              <li>DBeaver, pgAdmin</li>
-            </ul>
-          </div>
-          <div class="skill-item reveal delay-5">
-            <h3><i class="fas fa-globe icon"></i> Languages</h3>
-            <ul>
-              <li>Kazakh (C2)</li>
-              <li>Russian (C2)</li>
-              <li>English (C1)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <section id="contact">
+      <h2>Контакты</h2>
+      <!-- TODO: указать email, соцсети и другие способы связи -->
     </section>
+  </main>
 
-    <!-- ================== CONTACT PAGE ================== -->
-    <section id="page-contact" class="page">
-      <div class="inner">
-        <h2 class="reveal">Contact</h2>
-        <p class="reveal delay-1">Feel free to get in touch!</p>
-        <ul class="contact-list">
-          <li class="reveal delay-2">
-            <i class="fas fa-envelope icon"></i>
-            <a href="mailto:meninpowtam@gmail.com">meninpowtam@gmail.com</a>
-          </li>
-          <li class="reveal delay-3">
-            <i class="fab fa-linkedin icon"></i>
-            <a href="https://www.linkedin.com/in/bekosh/" target="_blank" rel="noopener noreferrer"
-              >linkedin.com/in/bekosh</a
-            >
-          </li>
-        </ul>
-      </div>
-    </section>
-  </div>
-
-  <!-- Подключаем JS -->
-  <script src="script.js"></script>
+  <footer>
+    <p>&copy; 2025 Ваше Имя. Все права защищены.</p>
+  </footer>
 </body>
 </html>
