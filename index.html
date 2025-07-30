@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ваше Имя – Главная</title>
+  <title>Mustafa Bekzat Берікұлы – Product Manager</title>
   <style>
-    /* Базовые стили */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
     header, footer { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
     nav ul { display: flex; justify-content: center; list-style: none; }
     nav ul li { margin: 0 1rem; }
     nav ul li a { color: #fff; text-decoration: none; }
+    .profile-photo { width: 150px; height: auto; border-radius: 50%; margin-bottom: 1rem; }
     main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
     section { margin-bottom: 2rem; }
     h1, h2 { margin-bottom: 1rem; }
+    p, li { margin-bottom: 0.5rem; }
+    ul { list-style: disc inside; }
     a { color: #0066cc; }
     footer p { font-size: 0.9rem; }
     @media (max-width: 600px) {
@@ -25,41 +27,98 @@
 </head>
 <body>
   <header>
-    <h1>Ваше Имя</h1>
+    <img src="path/to/photo.jpg" alt="Фото Mustafa" class="profile-photo" />
+    <h1>Mustafa Bekzat Берікұлы</h1>
     <nav>
       <ul>
         <li><a href="#about">Обо мне</a></li>
         <li><a href="#projects">Проекты</a></li>
         <li><a href="#experience">Опыт</a></li>
+        <li><a href="#education">Образование</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>
     </nav>
   </header>
-
   <main>
     <section id="about">
       <h2>Обо мне</h2>
-      <p><!-- TODO: кратко о себе: кто вы, чем занимаетесь и ваши цели --></p>
+      <p>Я – Product Manager с более чем 1 годом опыта в разработке продуктов, управлении проектами и бизнес/системном анализе. Специализируюсь на поиске инновационных решений и повышении операционной эффективности в B2B и B2C. Имею опыт в SDLC, сборе и описании технических требований, QA и работе по Agile. Владею Django, Flutter, FastAPI, Gin и методологиями Lean Startup.</p>
+      <p>Родился 7 января 2004 г., проживаю в Алматы, Казахстан.</p>
     </section>
-
     <section id="projects">
       <h2>Проекты</h2>
-      <!-- TODO: добавить карточки или список ключевых проектов с описанием и ссылками -->
+      <ul>
+        <li><strong>Автоматизация бизнес-процессов</strong> – разработка и внедрение платформы автоматизации технологических и бизнес-процессов для клиентов компании Maxinum Consulting.</li>
+        <li><strong>Модель оптимизации дохода</strong> – формализация динамической бизнес-модели для проекта Kazakhstan Technology Commercialization, обеспечившая прогнозируемый рост выручки на 25% и снижение операционных затрат на 20%.</li>
+        <li><strong>Методы приготовления кофе</strong> – исследование рынка и внедрение 5 новых методов приготовления кофе для сетей кофеен в Казахстане в рамках проекта Degusto.</li>
+        <li><strong>Usability Testing Mobile App</strong> – проведение A/B-тестирования и повышение конверсии регистрации на 10% для мобильного приложения KMF.</li>
+      </ul>
+      <p><a href="https://github.com/beko-o" target="_blank">Мой GitHub</a> (репозитории проектов)</p>
     </section>
-
     <section id="experience">
-      <h2>Опыт работы</h2>
-      <!-- TODO: описать опыт, компании, роли и достижения -->
+      <h2>Опыт</h2>
+      <ul>
+        <li>
+          <strong>Systems/Business Analyst</strong>, Maxinum Consulting Ltd (Июнь 2024 – настоящее время)
+          <ul>
+            <li>Управление проектами: планирование, координация ресурсов и контроль сроков.</li>
+            <li>Анализ требований: сбор, документирование и согласование с заинтересованными сторонами.</li>
+            <li>Техническое планирование: разработка архитектуры, определение эпиков и версий.</li>
+            <li>Sprint Analysis & QA: организация спринтов, проведение ретроспектив и обеспечение качества продукта.</li>
+            <li>Лидерство команды: распределение задач и оптимизация взаимодействия между разработчиками.</li>
+            <li>Внедрение продуктов: поддержка и обучение клиентов после релиза.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Project Manager</strong>, Kazakhstan Technology Commercialization Project (Январь 2024 – Май 2024)
+          <ul>
+            <li>Разработка бизнес-модели, увеличившей прогнозируемую выручку на 15%.</li>
+            <li>Проведение рыночного анализа и выявление трех новых направлений дохода.</li>
+            <li>Организация bi-weekly митингов с собственником проекта и консультантами Thunderbird School of Global Management.</li>
+            <li>Управление командой из 3 стажеров и проведение выставки для инвесторов, результат – письмо о намерениях на будущие инвестиции.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Product Development Analyst</strong>, Degusto (Октябрь 2023 – Февраль 2024)
+          <ul>
+            <li>Анализ 4 сетей кофеен и 8 независимых кофеен для выхода на казахстанский рынок.</li>
+            <li>Поиск и тестирование 5 новых методов приготовления кофе.</li>
+            <li>Проведение Customer Development с 30 респондентами и сегментация целевой аудитории.</li>
+            <li>Рекомендации по повышению узнаваемости бренда.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Intern Product Manager</strong>, KMF (Сентябрь 2023 – Ноябрь 2023)
+          <ul>
+            <li>Usability-тестирование мобильного приложения (50 респондентов).</li>
+            <li>A/B-тестирование регистрации для повышения конверсии на 10%.</li>
+          </ul>
+        </li>
+      </ul>
     </section>
-
+    <section id="education">
+      <h2>Образование</h2>
+      <ul>
+        <li><strong>Almaty Management University</strong> – Бакалавр Product Management (Сентябрь 2022 – Июнь 2025)</li>
+        <li><strong>Назарбаев Интеллектуальные школы, г. Актау</strong> – Диплом о среднем образовании (Сентябрь 2016 – Май 2022)</li>
+      </ul>
+      <h3>Сертификаты</h3>
+      <ul>
+        <li>Agile Project Management</li>
+        <li>Foundations of Data Science</li>
+        <li>Product Management</li>
+      </ul>
+    </section>
     <section id="contact">
       <h2>Контакты</h2>
-      <!-- TODO: указать email, соцсети и другие способы связи -->
+      <p>Телефон: <a href="tel:+77781800499">+7 (778) 180-0499</a></p>
+      <p>Email: <a href="mailto:meninpowtam@gmail.com">meninpowtam@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/bekosh" target="_blank">linkedin.com/in/bekosh</a></p>
+      <p>GitHub: <a href="https://github.com/beko-o" target="_blank">github.com/beko-o</a></p>
     </section>
   </main>
-
   <footer>
-    <p>&copy; 2025 Ваше Имя. Все права защищены.</p>
+    <p>&copy; 2025 Mustafa Bekzat Берікұлы. Все права защищены.</p>
   </footer>
 </body>
 </html>
