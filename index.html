@@ -1,309 +1,407 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mustafa Bekzat Berikuly – Product Manager</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- AOS for scroll animations -->
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet"/>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/3eb06a3a27.js" crossorigin="anonymous"></script>
-  <!-- Confetti.js -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="Bekzat Mustafa is a Systems & Business Analyst and MSc Data Science student at the University of Sussex. Explore selected work in insurance, healthcare, enterprise software and digital products.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://beko-o.github.io/">
+  <meta property="og:title" content="Bekzat Mustafa — Systems, Products & Data">
+  <meta property="og:description" content="From complex requirements to digital products that work. Selected work, experience and projects by Bekzat Mustafa.">
+  <meta name="robots" content="index,follow">
+  <title>Bekzat Mustafa — Systems, Products & Data</title>
+  <link rel="canonical" href="https://beko-o.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23163531'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='26' font-family='Arial' font-weight='700' fill='%23d8f883'%3EBM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    // Apply saved preference before rendering to avoid a theme flash.
+    try {
+      const saved = localStorage.getItem('bm-theme');
+      if (saved === 'dark' || saved === 'light') document.documentElement.dataset.theme = saved;
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'dark';
+    } catch (e) {}
+  </script>
   <style>
     :root {
-      --clr-bg: #f0f4f8;
-      --clr-card: #ffffff;
-      --clr-primary: #005f73;
-      --clr-secondary: #0a9396;
-      --clr-accent: #94d2bd;
-      --clr-text: #333333;
-      --radius: 8px;
-      --transition: 0.3s;
+      --bg:#f7f8f4; --panel:#fff; --muted-panel:#edf1eb; --ink:#192723;
+      --sub:#607067; --border:#dce5dc; --forest:#153f36; --lime:#d9f78c;
+      --accent:#255a48; --forest-text:#fff; --soft-green:#e8f2d8;
+      --shadow:0 18px 60px rgba(20,46,37,.065); --radius:22px;
+      font-synthesis:none;
     }
     [data-theme="dark"] {
-      --clr-bg: #121212;
-      --clr-card: #1e1e1e;
-      --clr-primary: #bb86fc;
-      --clr-secondary: #03dac6;
-      --clr-accent: #cf6679;
-      --clr-text: #ffffff;
+      --bg:#0d1614; --panel:#15231f; --muted-panel:#1e3029; --ink:#eff4ef;
+      --sub:#adbdb2; --border:#304239; --forest:#d4f0d2; --lime:#d9f78c;
+      --accent:#b8e7c2; --forest-text:#12231b; --soft-green:#294337;
+      --shadow:0 18px 60px rgba(0,0,0,.17);
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--clr-bg);
-      color: var(--clr-text);
-      transition: background var(--transition), color var(--transition);
-      overflow-x: hidden;
-    }
-    header {
-      background: var(--clr-primary);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      position: relative;
-      animation: fadeInUp 0.8s ease-out;
-    }
-    #theme-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #fff;
-      cursor: pointer;
-      transition: transform var(--transition);
-    }
-    #theme-toggle:hover { transform: scale(1.1); }
-    .profile-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid var(--clr-secondary);
-      object-fit: cover;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      position: relative;
-      padding-bottom: 4px;
-      transition: color var(--transition);
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--clr-accent);
-      transition: width var(--transition), left var(--transition);
-    }
-    nav a:hover { color: var(--clr-accent); }
-    nav a:hover::after { width: 100%; left: 0; }
-    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-    section {
-      background: var(--clr-card);
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 3rem;
-      padding: 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity var(--transition), transform var(--transition);
-    }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    [data-aos] { opacity: 1 !important; transform: translateY(0) !important; }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, var(--clr-secondary), var(--clr-accent));
-      -webkit-background-clip: text;
-      color: transparent;
-      position: relative;
-    }
-    h2::before { content: '✨ '; }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 1.5rem; }
-    .card {
-      background: var(--clr-card);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: transform var(--transition), box-shadow var(--transition);
-      cursor: pointer;
-    }
-    .card:hover { transform: translateY(-5px) rotate(-2deg); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-    .card h3 { margin-top: 0; margin-bottom: 0.5rem; color: var(--clr-secondary); font-size: 1.25rem; }
-    .skill-bar { background: #e0e0e0; border-radius: var(--radius); overflow: hidden; margin-bottom: 0.5rem; }
-    .skill-bar span { display: block; height: 10px; background: var(--clr-accent); width: 0; animation: fillBar 1.5s ease-out forwards; }
-    @keyframes fillBar { to { width: var(--fill-width); }}
-    .contact-list p { margin-bottom: 0.5rem; font-size: 1rem; }
-    .btn {
-      display: inline-block;
-      background: var(--clr-secondary);
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      cursor: pointer;
-      font-weight: 600;
-      transition: background var(--transition), transform var(--transition);
-      margin-top: 1rem;
-      text-decoration: none;
-    }
-    .btn:hover { background: var(--clr-accent); transform: scale(1.05); }
-    .joke-box {
-      padding: 1rem;
-      background: #fefae0;
-      border-left: 4px solid var(--clr-accent);
-      margin-top: 1rem;
-      font-style: italic;
-      border-radius: var(--radius);
-    }
-    footer { text-align: center; padding: 1rem; background: var(--clr-primary); color: #fff; font-size: 0.9rem; }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 'DM Sans',system-ui,-apple-system,sans-serif;transition:background .25s,color .25s}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #62ab7b;outline-offset:4px}
+    ::selection{background:var(--lime);color:#163a2e}
+    .shell{width:min(1176px,calc(100% - 64px));margin-inline:auto}
+    .skip-link{position:absolute;left:12px;top:-80px;z-index:200;background:var(--lime);padding:10px 16px;border-radius:12px;color:#102b22}
+    .skip-link:focus{top:12px}
+    .eyebrow{font-size:.71rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+    .eyebrow::before{content:"";width:21px;height:1px;background:currentColor}
+    .topbar{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 91%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .topbar-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:inline-flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.05em;font-size:1.08rem;white-space:nowrap}
+    .brand-mark{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:#153f36;color:#dbf78a;letter-spacing:-.075em;font-size:.87rem}
+    .brand small{color:var(--sub);font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.025em;font-weight:600;display:block;margin-top:-6px}
+    .nav-right{display:flex;align-items:center;gap:24px}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{color:var(--sub);font-weight:700;font-size:.81rem;transition:color .2s}
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--ink)}
+    .theme-toggle{display:grid;place-items:center;width:41px;height:41px;border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--ink);cursor:pointer;transition:background .2s,transform .2s}
+    .theme-toggle:hover{transform:translateY(-2px);background:var(--muted-panel)}
+    .theme-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .theme-toggle .sun{display:none}
+    [data-theme="dark"] .theme-toggle .moon{display:none}
+    [data-theme="dark"] .theme-toggle .sun{display:block}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;align-items:stretch;gap:52px;padding-top:100px;padding-bottom:91px}
+    .hero-text{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .status{display:inline-flex;align-items:center;gap:9px;background:var(--soft-green);color:var(--accent);border-radius:99px;font-weight:700;font-size:.77rem;padding:8px 13px;margin-bottom:28px}
+    .status::before{content:"";width:7px;height:7px;border-radius:50%;background:#59a675}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:Manrope,system-ui,sans-serif}
+    h1{max-width:790px;font-size:clamp(3rem,5.4vw,5.6rem);font-weight:800;line-height:1.075;letter-spacing:-.074em;margin-bottom:29px}
+    h1 .accent{color:var(--accent)}
+    .hero-description{max-width:575px;color:var(--sub);font-size:1.075rem;line-height:1.8;margin-bottom:29px}
+    .hero-description strong{color:var(--ink);font-weight:700}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 19px;border-radius:12px;font-size:.85rem;font-weight:800;border:1px solid transparent;white-space:nowrap;transition:transform .18s,background .18s,border-color .18s;cursor:pointer}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{color:#fff;background:#153f36}
+    .btn-primary:hover{background:#275c4b}
+    .btn-outline{border-color:var(--border);background:var(--panel);color:var(--ink)}
+    .btn-outline:hover{border-color:var(--accent)}
+    .arrow{font-size:1.07rem;line-height:1}
+    .hero-footnote{color:var(--sub);font-size:.81rem;margin-top:26px;margin-bottom:0;display:flex;align-items:center;gap:10px}
+    .hero-footnote .dot{height:4px;width:4px;background:var(--sub);border-radius:50%}
+    .impact{position:relative;min-height:530px;padding:28px;display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:#153f36;color:#f5f9f0;isolation:isolate;box-shadow:0 34px 72px rgba(16,56,42,.15)}
+    .impact::before,.impact::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(220,247,163,.18);z-index:-1}
+    .impact::before{width:470px;height:470px;right:-235px;top:-120px}
+    .impact::after{width:310px;height:310px;right:-145px;top:-44px}
+    .impact-top{display:flex;justify-content:space-between;align-items:center;color:#c9e1d2;font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .impact-top .spark{background:#d9f78c;color:#16392b;width:31px;height:31px;display:grid;place-items:center;border-radius:50%;font-size:1.15rem}
+    .impact-title{font:800 clamp(1.9rem,2.65vw,2.75rem)/1.2 Manrope,sans-serif;letter-spacing:-.055em;max-width:370px;margin:76px 0 34px}
+    .impact-title em{font-style:normal;color:#dbf78a}
+    .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+    .metric{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);padding:18px;border-radius:14px;min-height:125px}
+    .metric:first-child{grid-column:span 2}
+    .metric b{display:block;font:800 clamp(1.9rem,2.5vw,2.5rem)/1.1 Manrope,sans-serif;letter-spacing:-.05em;color:#d9f78c;margin-bottom:8px}
+    .metric span{font-size:.75rem;color:#d4e3d8;line-height:1.5;display:block}
+    .metric span strong{color:#fff}
+    .discipline-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .discipline-list{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:23px 0}
+    .discipline-list span{color:var(--sub);font-size:.76rem;font-weight:800;letter-spacing:.055em;text-transform:uppercase}
+    .discipline-list i{height:4px;width:4px;border-radius:50%;background:#86ad97}
+    .section{padding-top:119px;padding-bottom:13px}
+    .section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:38px}
+    .section-heading h2,.side-intro h2{font-size:clamp(2rem,3.7vw,3.4rem);letter-spacing:-.065em;line-height:1.15;margin:16px 0 0}
+    .section-heading p{max-width:360px;font-size:.9rem;line-height:1.7;color:var(--sub);margin-bottom:3px}
+    .projects-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+    .project{grid-column:span 2;border:1px solid var(--border);background:var(--panel);border-radius:21px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .project:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 35%,var(--border))}
+    .project.wide{grid-column:span 3}
+    .project-visual{height:162px;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:space-between;padding:20px;isolation:isolate}
+    .project-visual::after{position:absolute;content:"";width:255px;height:255px;border:1px solid currentColor;border-radius:50%;right:-110px;top:-110px;opacity:.19;z-index:-1;box-shadow:0 0 0 37px rgba(255,255,255,.065),0 0 0 72px rgba(255,255,255,.04)}
+    .visual-health{background:#dceee5;color:#1d5949}
+    .visual-toq{background:#dcedd0;color:#315631}
+    .visual-crm{background:#e5e5f6;color:#48437b}
+    .visual-sports{background:#e6ebf1;color:#2f536b}
+    .visual-erp{background:#f4e9dc;color:#765433}
+    .project-symbol{font:800 2.7rem/1 Manrope,sans-serif;letter-spacing:-.08em;position:relative;z-index:1}
+    .project-symbol small{display:block;font:800 .62rem 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+    .visual-tag{position:relative;z-index:1;font-size:.62rem;letter-spacing:.085em;font-weight:800;text-transform:uppercase;padding:7px 10px;border:1px solid currentColor;border-radius:99px;white-space:nowrap}
+    .project-body{padding:25px 25px 24px;display:flex;flex-direction:column;flex:1}
+    .project-meta{font-size:.68rem;color:var(--accent);font-weight:800;letter-spacing:.085em;text-transform:uppercase;margin-bottom:12px}
+    .project h3{font-size:1.2rem;letter-spacing:-.05em;line-height:1.3;margin:0 0 11px}
+    .project p{font-size:.88rem;color:var(--sub);line-height:1.73;margin-bottom:21px}
+    .project-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:15px;border-top:1px solid var(--border)}
+    .project-impact{font-size:.76rem;font-weight:800;color:var(--ink)}
+    .project-impact span{color:var(--sub);font-weight:600}
+    .project-link{font-size:.75rem;font-weight:800;color:var(--accent);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+    .two-column{display:grid;grid-template-columns:.71fr 1.29fr;gap:105px}
+    .side-intro{padding-top:4px}
+    .side-intro p{color:var(--sub);font-size:.95rem;line-height:1.8;max-width:310px;margin-top:21px}
+    .experience-list{border-top:1px solid var(--border)}
+    .role{padding:27px 0 30px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:8px 22px}
+    .role h3{font-size:1.08rem;letter-spacing:-.04em;margin:0 0 4px}
+    .role .org{color:var(--accent);font-weight:800;font-size:.86rem;margin-bottom:0}
+    .role time{font-size:.77rem;color:var(--sub);white-space:nowrap;margin-top:2px;text-align:right}
+    .role p.desc{grid-column:1 / -1;color:var(--sub);font-size:.88rem;line-height:1.76;margin:6px 0 0}
+    .role .micro{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .micro span{font-size:.68rem;font-weight:800;background:var(--muted-panel);border-radius:8px;padding:5px 9px;color:var(--accent)}
+    details.earlier{border-bottom:1px solid var(--border);padding:20px 0}
+    details.earlier summary{cursor:pointer;font-size:.84rem;font-weight:800;color:var(--accent)}
+    details.earlier p{font-size:.83rem;color:var(--sub);line-height:1.7;margin:14px 0 0}
+    .skills-layout{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skill-card{padding:30px;background:var(--panel);border:1px solid var(--border);border-radius:20px;min-height:310px}
+    .skill-serial{font:800 .7rem Manrope,sans-serif;color:var(--accent);letter-spacing:.12em;margin-bottom:34px}
+    .skill-card h3{font-size:1.28rem;letter-spacing:-.05em;line-height:1.26;margin-bottom:13px}
+    .skill-card p{font-size:.85rem;color:var(--sub);line-height:1.72;margin-bottom:23px}
+    .tags{display:flex;flex-wrap:wrap;gap:7px}
+    .tag{font-size:.72rem;border:1px solid var(--border);padding:5px 9px;border-radius:7px;background:var(--muted-panel);font-weight:700;color:var(--ink)}
+    .education-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:18px}
+    .education-card{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:33px;min-height:235px;display:flex;flex-direction:column}
+    .school-mark{display:flex;align-items:center;gap:10px;font-size:.7rem;text-transform:uppercase;letter-spacing:.085em;color:var(--accent);font-weight:800;margin-bottom:28px}
+    .school-mark .school-logo{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--soft-green);color:var(--accent);font-family:Manrope;font-size:.8rem;letter-spacing:-.08em}
+    .education-card h3{font-size:1.3rem;letter-spacing:-.05em;margin:0 0 12px}
+    .education-card p{color:var(--sub);font-size:.83rem;margin-bottom:14px;line-height:1.65}
+    .education-card .date{font-size:.78rem;font-weight:800;color:var(--accent);margin-top:auto}
+    .education-note{color:var(--sub);font-size:.8rem;margin-top:18px}
+    .about-panel{background:var(--muted-panel);border:1px solid var(--border);border-radius:26px;padding:50px;display:grid;grid-template-columns:.95fr 1.05fr;gap:55px;align-items:center}
+    .about-panel h2{font-size:clamp(2rem,3vw,3.2rem);letter-spacing:-.06em;line-height:1.2;margin:18px 0 0}
+    .about-panel p{font-size:.95rem;line-height:1.85;color:var(--sub);margin-bottom:13px}
+    .about-panel p:last-child{margin-bottom:0}
+    .contact-panel{border-radius:28px;background:#153f36;color:#fff;padding:65px;position:relative;overflow:hidden;isolation:isolate}
+    .contact-panel::after{content:"";position:absolute;right:-100px;top:-120px;width:460px;height:460px;border:1px solid rgba(217,247,140,.18);border-radius:50%;box-shadow:0 0 0 48px rgba(217,247,140,.05),0 0 0 100px rgba(217,247,140,.035);z-index:-1}
+    .contact-panel .eyebrow{color:#d9f78c}
+    .contact-panel h2{font-size:clamp(2.4rem,4.5vw,4.4rem);line-height:1.12;letter-spacing:-.07em;max-width:650px;margin:20px 0 16px}
+    .contact-panel h2 span{color:#d9f78c}
+    .contact-panel p{color:#d2e4d8;max-width:540px;font-size:.98rem;line-height:1.8;margin-bottom:25px}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+    .btn-lime{background:#d9f78c;color:#193d2f}
+    .btn-lime:hover{background:#edfbb8}
+    .btn-clear{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.07);color:#fff}
+    .btn-clear:hover{background:rgba(255,255,255,.14)}
+    .copy-feedback{font-size:.74rem;color:#d9f78c;min-height:22px;margin-top:13px!important;margin-bottom:0!important}
+    .footer{padding:36px 0 48px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid var(--border);padding-top:25px;color:var(--sub);font-size:.77rem}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .footer-links a:hover{color:var(--ink);text-decoration:underline}
+    @media(max-width:1080px){.hero{gap:28px}.hero h1{font-size:clamp(2.7rem,5vw,4.7rem)}.two-column{gap:58px}.impact{min-height:495px}.discipline-list{justify-content:center;gap:17px}}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:65px}.hero-text{max-width:700px}.impact{min-height:380px}.impact-title{margin:35px 0 26px;max-width:480px}.metric-grid{grid-template-columns:repeat(3,1fr)}.metric:first-child{grid-column:span 1}.project,.project.wide{grid-column:span 3}.two-column{grid-template-columns:1fr;gap:30px}.side-intro p{max-width:650px}.about-panel{gap:24px}.section{padding-top:88px}.nav-links{gap:15px}}
+    @media(max-width:650px){.shell{width:min(100% - 36px,1176px)}.topbar-inner{min-height:69px;gap:10px}.brand{font-size:.98rem}.brand-mark{width:35px;height:35px}.nav-right{gap:10px}.nav-links{gap:12px}.nav-links a{font-size:.74rem}.nav-links a[href="#skills"],.nav-links a[href="#education"],.nav-links a[href="#experience"]{display:none}.theme-toggle{width:36px;height:36px}.hero{padding-top:51px;padding-bottom:63px;gap:31px}.hero h1{font-size:clamp(2.7rem,10.4vw,4.25rem)}.hero-description{font-size:.98rem}.hero-footnote{font-size:.73rem;flex-wrap:wrap}.impact{min-height:400px;padding:21px}.impact-title{font-size:2rem;margin:32px 0 24px}.metric-grid{grid-template-columns:1fr 1fr}.metric:first-child{grid-column:span 2}.metric{padding:13px;min-height:95px}.metric b{font-size:1.8rem}.metric span{font-size:.7rem}.discipline-list{justify-content:flex-start;gap:13px;padding:19px 0}.discipline-list span{font-size:.64rem}.discipline-list i:nth-of-type(2){display:none}.section{padding-top:80px}.section-heading{display:block;margin-bottom:25px}.section-heading p{margin-top:18px}.projects-grid{grid-template-columns:1fr}.project,.project.wide{grid-column:span 1}.project-visual{height:150px}.project-body{padding:22px}.role{grid-template-columns:1fr}.role time{text-align:left}.skills-layout,.education-grid{grid-template-columns:1fr}.skill-card{min-height:auto}.about-panel{padding:29px;grid-template-columns:1fr;gap:18px}.contact-panel{padding:35px 25px}.contact-panel h2{font-size:2.35rem}.footer-inner{align-items:flex-start;flex-direction:column}.footer{padding-bottom:30px}}
+    @media(max-width:370px){.nav-links a[href="#projects"]{display:none}.status{font-size:.69rem}.btn{padding:11px 14px;font-size:.79rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <header>
-    <button id="theme-toggle" aria-label="Toggle Dark Mode">
-      <i class="fas fa-moon"></i>
-    </button>
-    <img src="assets\images\avatar.jpg" alt="Mustafa's Photo" class="profile-photo" data-aos="fade-down"/>
-    <h1 data-aos="fade-down" data-aos-delay="100">Mustafa Bekzat Berikuly</h1>
-    <nav data-aos="fade-down" data-aos-delay="200">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#top" aria-label="Bekzat Mustafa — back to top">
+        <span class="brand-mark" aria-hidden="true">BM</span>
+        <span>bekzat.mustafa<small>systems · products · data</small></span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#projects">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle colour theme">
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.3 8.3 0 0 1 8.6 4a8.4 8.4 0 1 0 11.4 11.4Z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
+    </div>
   </header>
-  <main>
-    <section id="about" data-aos="fade-up">
-      <h2>About Me</h2>
-      <p>I am a <strong>Product Manager</strong> with 1+ year of experience in product development, project management, and business/system analysis. Skilled in finding innovative solutions and optimizing operational efficiency in both B2B and B2C sectors. Tech stack: Django, Flutter, FastAPI, Gin. Methodologies: Agile, Lean Startup.</p>
-      <div class="skill-bar" style="--fill-width:90%"><span></span></div>
-      <p>Born January 7, 2004 · Almaty, Kazakhstan</p>
-    </section>
-    <section id="projects" data-aos="fade-up">
-      <h2>Projects</h2>
+
+  <main id="main">
+    <div id="top" class="shell hero">
+      <div class="hero-text">
+        <div class="status">Based in Brighton, UK · University of Sussex</div>
+        <div class="eyebrow">Hi, I'm Bekzat Mustafa</div>
+        <h1>From complex requirements to <span class="accent">products that work.</span></h1>
+        <p class="hero-description">I'm a <strong>Systems &amp; Business Analyst</strong> and an <strong>MSc Data Science</strong> student at the University of Sussex. I connect business needs, technical teams and user experience to help build practical digital products.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Explore my work <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-outline" href="Bekzat_Mustafa_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-footnote">Insurance &amp; integrations <span class="dot" aria-hidden="true"></span> Healthcare &amp; SaaS <span class="dot" aria-hidden="true"></span> Product &amp; data</p>
+      </div>
+      <aside class="impact" aria-label="Selected results from products I have worked on">
+        <div class="impact-top"><span>Selected product impact / 2025</span><span class="spark" aria-hidden="true">✳</span></div>
+        <div class="impact-title">Good analysis makes a <em>measurable difference.</em></div>
+        <div class="metric-grid">
+          <div class="metric"><b>2,000</b><span><strong>Monthly active users</strong> · TOQ power-bank rental</span></div>
+          <div class="metric"><b>1,000</b><span><strong>Weekly active users</strong> · Catholic Sports</span></div>
+          <div class="metric"><b>9</b><span><strong>Sports schools</strong> · Tapgo CRM</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="discipline-strip" aria-label="Specialisms">
+      <div class="shell discipline-list">
+        <span>System analysis</span><i aria-hidden="true"></i>
+        <span>API design</span><i aria-hidden="true"></i>
+        <span>Product discovery</span><i aria-hidden="true"></i>
+        <span>Data analysis</span><i aria-hidden="true"></i>
+        <span>Delivery &amp; collaboration</span>
+      </div>
+    </div>
+
+    <section class="shell section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div><div class="eyebrow">01 / Selected work</div><h2 id="projects-title">Work beyond the job title.</h2></div>
+        <p>Five products across healthcare, consumer services and operations. Each brought different challenges — and something real into use.</p>
+      </div>
       <div class="projects-grid">
-        <div class="card" data-aos="zoom-in">
-          <h3>Business Process Automation</h3>
-          <p>Developed and launched a platform automating tech & business workflows for Maxinum Consulting.</p>
-        </div>
-        <div class="card" data-aos="zoom-in" data-aos-delay="100">
-          <h3>Revenue Optimization Model</h3>
-          <p>Created dynamic business model for Kazakhstan Technology Commercialization: +25% revenue, –20% costs.</p>
-        </div>
-        <div class="card" data-aos="zoom-in" data-aos-delay="200">
-          <h3>Coffee Brewing Methods</h3>
-          <p>Researched and implemented 5 new brewing techniques for Degusto coffee chains.</p>
-        </div>
-        <div class="card" data-aos="zoom-in" data-aos-delay="300">
-          <h3>Mobile App Usability Testing</h3>
-          <p>Conducted A/B tests, improved registration conversion by 10% for KMF app.</p>
-        </div>
+        <article class="project">
+          <div class="project-visual visual-health"><div class="project-symbol"><small>Healthcare · US</small>Open Heart</div><span class="visual-tag">B2C / Healthcare</span></div>
+          <div class="project-body">
+            <div class="project-meta">Business analysis · 2025</div>
+            <h3>Open Heart × Cardia</h3>
+            <p>Led business analysis for a healthcare product connecting pacemaker patients and cardiologists, adapting requirements for the US market with HIPAA considerations.</p>
+            <div class="project-bottom"><div class="project-impact">Hospital deployment <span>· Wisconsin</span></div><a class="project-link" href="https://portal.open-heart.ai/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Open Heart product">Visit site ↗</a></div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-visual visual-toq"><div class="project-symbol"><small>Consumer product · Kazakhstan</small>TOQ.</div><span class="visual-tag">Rental / B2C</span></div>
+          <div class="project-body">
+            <div class="project-meta">Business &amp; product analysis · 2025</div>
+            <h3>TOQ Power-Bank Rental</h3>
+            <p>Researched the market, developed WhatsApp and Telegram bots, and planned station firmware and business-process changes for local customers.</p>
+            <div class="project-bottom"><div class="project-impact">2,000 MAU <span>· 16 stations</span></div></div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-visual visual-crm"><div class="project-symbol"><small>Business software · Kazakhstan</small>tapgo<span aria-hidden="true">.</span></div><span class="visual-tag">SaaS / CRM</span></div>
+          <div class="project-body">
+            <div class="project-meta">Systems analysis · 2025</div>
+            <h3>Tapgo CRM</h3>
+            <p>Designed a multi-tenant CRM for sports schools, connecting subscriptions, lead management, coach compensation and financial reporting.</p>
+            <div class="project-bottom"><div class="project-impact">9 sports schools <span>· in use</span></div></div>
+          </div>
+        </article>
+        <article class="project wide">
+          <div class="project-visual visual-sports"><div class="project-symbol"><small>Community platform · US</small>Catholic Sports</div><span class="visual-tag">Mobile / Web</span></div>
+          <div class="project-body">
+            <div class="project-meta">Solution architecture &amp; analysis · 2025</div>
+            <h3>Making community operations easier</h3>
+            <p>Designed a mobile app and admin platform with scheduling, checklists and media tools for sports organisers and community staff.</p>
+            <div class="project-bottom"><div class="project-impact">1,000 WAU <span>· 70% less host/PR workload</span></div></div>
+          </div>
+        </article>
+        <article class="project wide">
+          <div class="project-visual visual-erp"><div class="project-symbol"><small>Operations · Kazakhstan</small>Halyk Nan</div><span class="visual-tag">ERP</span></div>
+          <div class="project-body">
+            <div class="project-meta">Systems &amp; business analysis · 2025</div>
+            <h3>ERP for real-world bakery operations</h3>
+            <p>Analysed end-to-end requirements and helped launch an ERP platform for bakery operations in Almaty on an accelerated timeline.</p>
+            <div class="project-bottom"><div class="project-impact">1-month launch <span>· 2 bakeries using the system</span></div></div>
+          </div>
+        </article>
       </div>
-      <a href="https://github.com/beko-o" class="btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-      <button class="btn" onclick="confetti()">🎉 Celebrate Success!</button>
     </section>
-    <section id="experience" data-aos="fade-up">
-      <h2>Experience</h2>
-      <div class="card" data-aos="fade-right">
-        <h3>Systems/Business Analyst @ Maxinum Consulting Ltd</h3>
-        <p><em>Jun 2024 – Present</em></p>
-        <ul>
-          <li>Project planning and resource coordination</li>
-          <li>Requirements gathering & documentation</li>
-          <li>Architectural planning & epic definition</li>
-          <li>Sprint management & QA processes</li>
-          <li>Team leadership and mentoring</li>
-        </ul>
+
+    <section class="shell section two-column" id="experience" aria-labelledby="experience-title">
+      <div class="side-intro">
+        <div class="eyebrow">02 / Experience</div>
+        <h2 id="experience-title">Where I've put it into practice.</h2>
+        <p>From cross-functional product teams to European insurance integrations, my focus has been making requirements precise and delivery collaborative.</p>
       </div>
-      <div class="card" data-aos="fade-right" data-aos-delay="100">
-        <h3>Project Manager @ Kazakhstan Tech Commercialization</h3>
-        <p><em>Jan 2024 – May 2024</em></p>
-        <ul>
-          <li>Increased forecasted revenue by 15%</li>
-          <li>Market analysis & new revenue streams</li>
-          <li>Bi-weekly meetings with stakeholders</li>
-          <li>Led a team of 3 interns</li>
-        </ul>
+      <div class="experience-list">
+        <article class="role">
+          <div><h3>Systems / Business Analyst</h3><p class="org">simplesurance · Berlin, Germany</p></div>
+          <time datetime="2025-10">Oct 2025 – Aug 2026</time>
+          <p class="desc">Worked on Allianz Group insurance initiatives across Europe. Translated stakeholder and regulatory requirements into technical documentation and API/Swagger specifications, reviewed implementation against business rules, and aligned scope across teams.</p>
+          <div class="micro"><span>Insurance</span><span>API specifications</span><span>Stakeholder alignment</span></div>
+        </article>
+        <article class="role">
+          <div><h3>Systems / Business Analyst</h3><p class="org">Maxinum Consulting Group · Almaty</p></div>
+          <time datetime="2024-05">May 2024 – Sep 2025</time>
+          <p class="desc">Coordinated work across three development teams, gathered requirements through interviews, reviewed UX/UI decisions, and helped deliver web and mobile products using Scrum and Kanban.</p>
+          <div class="micro"><span>Requirements</span><span>UX review</span><span>Agile delivery</span></div>
+        </article>
+        <article class="role">
+          <div><h3>Project Manager</h3><p class="org">Technology Commercialization Center · Almaty</p></div>
+          <time datetime="2024-01">Jan 2024 – May 2024</time>
+          <p class="desc">Developed a business model and market analysis, managed three interns, and organised an exhibition attended by 36 potential investors.</p>
+          <div class="micro"><span>Market research</span><span>Planning</span><span>Team coordination</span></div>
+        </article>
+        <details class="earlier">
+          <summary>Earlier internships — Degusto Coffee and KMF.kz</summary>
+          <p><strong>Degusto Coffee · Product Development Analyst (Oct 2023 – Feb 2024):</strong> Studied cafés and customer needs, conducted 30 interviews and developed market positioning.</p>
+          <p><strong>KMF.kz · Intern Product Manager (Sep – Nov 2023):</strong> Tested user flows with 50 participants; registration conversion improved by 10%.</p>
+        </details>
       </div>
-      <!-- More roles... -->
     </section>
-    <section id="education" data-aos="fade-up">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Almaty Management University</strong> – BSc in Product Management (2022–2025)</li>
-        <li><strong>Nazarbayev Intellectual School, Aktau</strong> – High School Diploma (2016–2022)</li>
-      </ul>
-      <h3>Certifications</h3>
-      <ul>
-        <li>Agile Project Management</li>
-        <li>Foundations of Data Science</li>
-        <li>Product Management</li>
-      </ul>
-    </section>
-    <section id="contact" data-aos="fade-up">
-      <h2>Contact</h2>
-      <div class="contact-list">
-        <p><i class="fas fa-phone"></i> <a href="tel:+77781800499">+7 (778) 180‑0499</a></p>
-        <p><i class="fas fa-envelope"></i> <a href="mailto:meninpowtam@gmail.com">meninpowtam@gmail.com</a></p>
-        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/bekosh" target="_blank">linkedin.com/in/bekosh</a></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/beko-o" target="_blank">github.com/beko-o</a></p>
+
+    <section class="shell section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <div><div class="eyebrow">03 / Toolkit</div><h2 id="skills-title">Business mindset. Technical fluency.</h2></div>
+        <p>I work comfortably across product decisions, system specifications and the data behind them.</p>
       </div>
-      <div class="joke-box" id="jokeBox">Press the button to hear a joke!</div>
-      <button class="btn" onclick="getJoke()">Tell me a joke</button>
+      <div class="skills-layout">
+        <article class="skill-card"><div class="skill-serial">01 / ANALYSIS</div><h3>Systems &amp; delivery</h3><p>Clarifying needs, modelling processes and keeping engineering teams aligned on what to build.</p><div class="tags"><span class="tag">Requirements</span><span class="tag">API / Swagger</span><span class="tag">Scrum &amp; Kanban</span><span class="tag">Prioritisation</span><span class="tag">Stakeholders</span></div></article>
+        <article class="skill-card"><div class="skill-serial">02 / ENGINEERING</div><h3>Data &amp; technology</h3><p>Hands-on familiarity with the tools and architectures used to build, query and analyse systems.</p><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">Jupyter</span><span class="tag">PostgreSQL</span><span class="tag">Django</span><span class="tag">FastAPI</span></div></article>
+        <article class="skill-card"><div class="skill-serial">03 / PRODUCT</div><h3>Product thinking</h3><p>Balancing technical feasibility with user needs, research and measurable business outcomes.</p><div class="tags"><span class="tag">Product discovery</span><span class="tag">A/B testing</span><span class="tag">UX analysis</span><span class="tag">Lean Startup</span><span class="tag">Market research</span></div></article>
+      </div>
+    </section>
+
+    <section class="shell section" id="education" aria-labelledby="education-title">
+      <div class="section-heading"><div><div class="eyebrow">04 / Learning</div><h2 id="education-title">Always building on the basics.</h2></div></div>
+      <div class="education-grid">
+        <article class="education-card"><div class="school-mark"><span class="school-logo" aria-hidden="true">S</span> Brighton · United Kingdom</div><h3>University of Sussex</h3><p>MSc Data Science. Extending my systems and product background with deeper analytical and computational skills.</p><div class="date">September 2026 – Present</div></article>
+        <article class="education-card"><div class="school-mark"><span class="school-logo" aria-hidden="true">A</span> Almaty · Kazakhstan</div><h3>Almaty Management University</h3><p>Bachelor's in Product Management, with a minor in Cinematography.</p><div class="date">2022 – 2025</div></article>
+      </div>
+      <p class="education-note">Earlier education: Nazarbayev Intellectual Schools, Aktau (A-level Certificate, 2022). Languages: Kazakh, Russian and English.</p>
+    </section>
+
+    <section class="shell section" id="about" aria-labelledby="about-title">
+      <div class="about-panel">
+        <div><div class="eyebrow">05 / A little more</div><h2 id="about-title">Curious about the full picture.</h2></div>
+        <div><p>I started in product management and gradually moved deeper into systems and business analysis. That experience taught me to see digital products from several perspectives: the people who use them, the business that relies on them and the engineers who make them possible.</p><p>Now, while studying Data Science at Sussex, I'm exploring how stronger analytical methods can help make these systems more useful, reliable and understandable.</p></div>
+      </div>
+    </section>
+
+    <section class="shell section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div class="eyebrow">06 / Let's connect</div>
+        <h2 id="contact-title">Have a complex problem? <span>Let's talk.</span></h2>
+        <p>Happy to connect about systems analysis, digital products, data-driven work or interesting collaborations.</p>
+        <div class="contact-actions">
+          <a class="btn btn-lime" href="mailto:meninpowtam@gmail.com">Send an email <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-clear" href="https://www.linkedin.com/in/bekosh/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+          <a class="btn btn-clear" href="https://github.com/beko-o" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+          <button class="btn btn-clear" id="copy-email" type="button" aria-label="Copy my email address">Copy email</button>
+        </div>
+        <p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></p>
+      </div>
     </section>
   </main>
-  <footer data-aos="fade-up">
-    <p>&copy; 2025 Mustafa Bekzat Berikuly. All rights reserved.</p>
+
+  <footer class="shell footer">
+    <div class="footer-inner"><span>© <span id="year">2026</span> Bekzat Mustafa · Built with HTML, CSS &amp; a little JavaScript.</span><div class="footer-links"><a href="#top">Back to top ↑</a><a href="Bekzat_Mustafa_CV.pdf" download>CV ↓</a><a href="mailto:meninpowtam@gmail.com">Email ↗</a></div></div>
   </footer>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // Initialize AOS
-    AOS.init({ once: true });
-
-    // Theme toggle
-    const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
-      const root = document.documentElement;
-      const current = root.getAttribute('data-theme');
-      const next = current === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      toggleBtn.innerHTML = next === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-    });
-
-    // Confetti
-    // сохраняем ссылку на импортированную функцию
-  const _confetti = window.confetti;
-
-// наша обёртка с новым именем
-function launchConfetti() {
-  _confetti({
-    particleCount: 150,
-    spread: 100,
-    origin: { y: 0.6 }
-  });
-}
-
-    // Fetch joke
-    async function getJoke() {
-      const jokeBox = document.getElementById('jokeBox');
-      try {
-        const res = await fetch('https://official-joke-api.appspot.com/random_joke');
-        const { setup, punchline } = await res.json();
-        jokeBox.textContent = `${setup} 😂 ${punchline}`;
-      } catch {
-        jokeBox.textContent = 'Oops! Couldn’t load a joke.';
-      }
+    const themeBtn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    function updateThemeButton() {
+      themeBtn.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     }
+    updateThemeButton();
+    themeBtn.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      updateThemeButton();
+      try { localStorage.setItem('bm-theme', next); } catch (e) {}
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('copy-email').addEventListener('click', async () => {
+      const email = 'meninpowtam@gmail.com';
+      const feedback = document.getElementById('copy-feedback');
+      try {
+        await navigator.clipboard.writeText(email);
+        feedback.textContent = 'Email copied to clipboard.';
+      } catch (e) {
+        feedback.textContent = 'Copy this address: ' + email;
+      }
+    });
   </script>
 </body>
 </html>
