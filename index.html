@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f7f8f4">
-  <meta name="description" content="Bekzat Mustafa is a Systems & Business Analyst and MSc Data Science student at the University of Sussex. Explore selected work in insurance, healthcare, enterprise software and digital products.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://beko-o.github.io/">
-  <meta property="og:title" content="Bekzat Mustafa — Systems, Products & Data">
-  <meta property="og:description" content="From complex requirements to digital products that work. Selected work, experience and projects by Bekzat Mustafa.">
-  <meta name="robots" content="index,follow">
-  <title>Bekzat Mustafa — Systems, Products & Data</title>
-  <link rel="canonical" href="https://beko-o.github.io/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23163531'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='26' font-family='Arial' font-weight='700' fill='%23d8f883'%3EBM%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#f7f8f4" name="theme-color"/>
+<meta content="Bekzat Mustafa is a Systems &amp; Business Analyst with experience in insurance integrations, APIs and digital products, currently pursuing an MSc in Data Science at the University of Sussex." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://beko-o.github.io/" property="og:url"/>
+<meta content="Bekzat Mustafa — Systems &amp; Business Analyst" property="og:title"/>
+<meta content="Portfolio of Bekzat Mustafa: insurance integration analysis, systems design, digital product case studies and MSc Data Science at Sussex." property="og:description"/>
+<meta content="index,follow" name="robots"/>
+<title>Bekzat Mustafa — Systems &amp; Business Analyst | Data Science</title>
+<link href="https://beko-o.github.io/" rel="canonical"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23163531'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='26' font-family='Arial' font-weight='700' fill='%23d8f883'%3EBM%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
     // Apply saved preference before rendering to avoid a theme flash.
     try {
       const saved = localStorage.getItem('bm-theme');
@@ -25,7 +27,7 @@
       else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'dark';
     } catch (e) {}
   </script>
-  <style>
+<style>
     :root {
       --bg:#f7f8f4; --panel:#fff; --muted-panel:#edf1eb; --ink:#192723;
       --sub:#607067; --border:#dce5dc; --forest:#153f36; --lime:#d9f78c;
@@ -86,24 +88,24 @@
     .arrow{font-size:1.07rem;line-height:1}
     .hero-footnote{color:var(--sub);font-size:.81rem;margin-top:26px;margin-bottom:0;display:flex;align-items:center;gap:10px}
     .hero-footnote .dot{height:4px;width:4px;background:var(--sub);border-radius:50%}
-    .impact{position:relative;min-height:530px;padding:28px;display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:#153f36;color:#f5f9f0;isolation:isolate;box-shadow:0 34px 72px rgba(16,56,42,.15)}
-    .impact::before,.impact::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(220,247,163,.18);z-index:-1}
-    .impact::before{width:470px;height:470px;right:-235px;top:-120px}
-    .impact::after{width:310px;height:310px;right:-145px;top:-44px}
-    .impact-top{display:flex;justify-content:space-between;align-items:center;color:#c9e1d2;font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    .impact-top .spark{background:#d9f78c;color:#16392b;width:31px;height:31px;display:grid;place-items:center;border-radius:50%;font-size:1.15rem}
-    .impact-title{font:800 clamp(1.9rem,2.65vw,2.75rem)/1.2 Manrope,sans-serif;letter-spacing:-.055em;max-width:370px;margin:76px 0 34px}
-    .impact-title em{font-style:normal;color:#dbf78a}
-    .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
-    .metric{background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);padding:18px;border-radius:14px;min-height:125px}
-    .metric:first-child{grid-column:span 2}
-    .metric b{display:block;font:800 clamp(1.9rem,2.5vw,2.5rem)/1.1 Manrope,sans-serif;letter-spacing:-.05em;color:#d9f78c;margin-bottom:8px}
-    .metric span{font-size:.75rem;color:#d4e3d8;line-height:1.5;display:block}
-    .metric span strong{color:#fff}
-    .discipline-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    .discipline-list{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:23px 0}
-    .discipline-list span{color:var(--sub);font-size:.76rem;font-weight:800;letter-spacing:.055em;text-transform:uppercase}
-    .discipline-list i{height:4px;width:4px;border-radius:50%;background:#86ad97}
+    /* First screen: identity first, supporting bio second. */
+    .hero{grid-template-columns:1.12fr .88fr;gap:58px;padding-top:78px;padding-bottom:85px}
+    .hero h1{font-size:clamp(3.6rem,6.6vw,6.25rem);margin-bottom:18px}
+    .hero-role{font:800 clamp(1.14rem,1.9vw,1.6rem)/1.4 Manrope,sans-serif;letter-spacing:-.035em;color:var(--ink);margin-bottom:24px}
+    .hero-role-separator{color:var(--accent);margin:0 7px}
+    .hero-description{max-width:625px}
+    .intro-card{position:relative;padding:35px 37px;background:#153f36;color:#f2f9f2;border-radius:26px;overflow:hidden;align-self:stretch;box-shadow:0 26px 60px rgba(21,63,54,.1)}
+    .intro-card::before{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(217,247,140,.17);border-radius:50%;right:-150px;top:-148px;box-shadow:0 0 0 40px rgba(217,247,140,.045)}
+    .intro-top{display:flex;justify-content:space-between;align-items:center;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#c6e6d1;margin-bottom:28px}
+    .intro-symbol{display:grid;place-items:center;background:#d9f78c;color:#153f36;width:39px;height:39px;border-radius:11px;letter-spacing:-.06em;font-size:.8rem}
+    .intro-card h2{font-size:clamp(1.48rem,2.25vw,2.17rem);line-height:1.3;letter-spacing:-.05em;margin-bottom:22px;max-width:360px}
+    .intro-card h2 em{font-style:normal;color:#d9f78c}
+    .intro-card p{color:#d8e8dd;font-size:.88rem;line-height:1.78;margin-bottom:15px}
+    .intro-separator{height:1px;background:rgba(255,255,255,.2);margin:26px 0 19px}
+    .intro-facts{display:grid;gap:13px}
+    .intro-facts div{display:grid;grid-template-columns:94px 1fr;align-items:baseline;gap:12px}
+    .intro-label{font-size:.72rem;color:#afcbbd}
+    .intro-facts strong{font-size:.78rem;font-weight:700;color:#fff}
     .section{padding-top:119px;padding-bottom:13px}
     .section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:38px}
     .section-heading h2,.side-intro h2{font-size:clamp(2rem,3.7vw,3.4rem);letter-spacing:-.065em;line-height:1.15;margin:16px 0 0}
@@ -159,10 +161,6 @@
     .education-card p{color:var(--sub);font-size:.83rem;margin-bottom:14px;line-height:1.65}
     .education-card .date{font-size:.78rem;font-weight:800;color:var(--accent);margin-top:auto}
     .education-note{color:var(--sub);font-size:.8rem;margin-top:18px}
-    .about-panel{background:var(--muted-panel);border:1px solid var(--border);border-radius:26px;padding:50px;display:grid;grid-template-columns:.95fr 1.05fr;gap:55px;align-items:center}
-    .about-panel h2{font-size:clamp(2rem,3vw,3.2rem);letter-spacing:-.06em;line-height:1.2;margin:18px 0 0}
-    .about-panel p{font-size:.95rem;line-height:1.85;color:var(--sub);margin-bottom:13px}
-    .about-panel p:last-child{margin-bottom:0}
     .contact-panel{border-radius:28px;background:#153f36;color:#fff;padding:65px;position:relative;overflow:hidden;isolation:isolate}
     .contact-panel::after{content:"";position:absolute;right:-100px;top:-120px;width:460px;height:460px;border:1px solid rgba(217,247,140,.18);border-radius:50%;box-shadow:0 0 0 48px rgba(217,247,140,.05),0 0 0 100px rgba(217,247,140,.035);z-index:-1}
     .contact-panel .eyebrow{color:#d9f78c}
@@ -179,206 +177,262 @@
     .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid var(--border);padding-top:25px;color:var(--sub);font-size:.77rem}
     .footer-links{display:flex;gap:20px;flex-wrap:wrap}
     .footer-links a:hover{color:var(--ink);text-decoration:underline}
-    @media(max-width:1080px){.hero{gap:28px}.hero h1{font-size:clamp(2.7rem,5vw,4.7rem)}.two-column{gap:58px}.impact{min-height:495px}.discipline-list{justify-content:center;gap:17px}}
-    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:65px}.hero-text{max-width:700px}.impact{min-height:380px}.impact-title{margin:35px 0 26px;max-width:480px}.metric-grid{grid-template-columns:repeat(3,1fr)}.metric:first-child{grid-column:span 1}.project,.project.wide{grid-column:span 3}.two-column{grid-template-columns:1fr;gap:30px}.side-intro p{max-width:650px}.about-panel{gap:24px}.section{padding-top:88px}.nav-links{gap:15px}}
-    @media(max-width:650px){.shell{width:min(100% - 36px,1176px)}.topbar-inner{min-height:69px;gap:10px}.brand{font-size:.98rem}.brand-mark{width:35px;height:35px}.nav-right{gap:10px}.nav-links{gap:12px}.nav-links a{font-size:.74rem}.nav-links a[href="#skills"],.nav-links a[href="#education"],.nav-links a[href="#experience"]{display:none}.theme-toggle{width:36px;height:36px}.hero{padding-top:51px;padding-bottom:63px;gap:31px}.hero h1{font-size:clamp(2.7rem,10.4vw,4.25rem)}.hero-description{font-size:.98rem}.hero-footnote{font-size:.73rem;flex-wrap:wrap}.impact{min-height:400px;padding:21px}.impact-title{font-size:2rem;margin:32px 0 24px}.metric-grid{grid-template-columns:1fr 1fr}.metric:first-child{grid-column:span 2}.metric{padding:13px;min-height:95px}.metric b{font-size:1.8rem}.metric span{font-size:.7rem}.discipline-list{justify-content:flex-start;gap:13px;padding:19px 0}.discipline-list span{font-size:.64rem}.discipline-list i:nth-of-type(2){display:none}.section{padding-top:80px}.section-heading{display:block;margin-bottom:25px}.section-heading p{margin-top:18px}.projects-grid{grid-template-columns:1fr}.project,.project.wide{grid-column:span 1}.project-visual{height:150px}.project-body{padding:22px}.role{grid-template-columns:1fr}.role time{text-align:left}.skills-layout,.education-grid{grid-template-columns:1fr}.skill-card{min-height:auto}.about-panel{padding:29px;grid-template-columns:1fr;gap:18px}.contact-panel{padding:35px 25px}.contact-panel h2{font-size:2.35rem}.footer-inner{align-items:flex-start;flex-direction:column}.footer{padding-bottom:30px}}
-    @media(max-width:370px){.nav-links a[href="#projects"]{display:none}.status{font-size:.69rem}.btn{padding:11px 14px;font-size:.79rem}}
+
+    /* Insurance integrations: an extension of professional experience. */
+    .insurance-work{width:min(1176px,calc(100% - 64px));margin:24px auto 0;border-top:1px solid var(--border);padding-top:37px}
+    .insurance-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:23px}
+    .mini-eyebrow{font-size:.69rem;text-transform:uppercase;color:var(--accent);letter-spacing:.13em;font-weight:800}
+    .insurance-head h3{font-size:clamp(1.4rem,2.3vw,2.1rem);line-height:1.25;letter-spacing:-.052em;margin:9px 0 0}
+    .insurance-head p{max-width:390px;color:var(--sub);font-size:.81rem;line-height:1.7;margin-bottom:0}
+    .integration-grid{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:17px}
+    .integration-card{border:1px solid var(--border);background:var(--panel);padding:25px 24px 17px;border-radius:18px;display:flex;flex-direction:column}
+    .integration-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:19px}
+    .client-initial{background:#e9f1df;color:#1b513d;border-radius:11px;font:800 .85rem Manrope,sans-serif;padding:10px 11px;letter-spacing:-.05em}
+    .client-nbg{background:#e8eef9;color:#294b7b}
+    .client-tesla{background:#f6e8e7;color:#b04639;min-width:42px;text-align:center}
+    .integration-type{color:var(--sub);font-size:.61rem;font-weight:800;letter-spacing:.065em;text-align:right}
+    .integration-card h4{font:800 1.1rem/1.4 Manrope,sans-serif;letter-spacing:-.04em;margin:0 0 9px}
+    .integration-card>p{font-size:.84rem;line-height:1.72;color:var(--sub);margin:0 0 23px}
+    .case-details{margin-top:auto;border-top:1px solid var(--border)}
+    .case-details summary{list-style:none;padding:17px 0 4px;font-size:.76rem;color:var(--accent);font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer}
+    .case-details summary::-webkit-details-marker{display:none}
+    .case-details summary span{font:400 1.3rem/1 Manrope,sans-serif;transition:transform .2s}
+    .case-details[open] summary span{transform:rotate(45deg)}
+    .case-content{padding:15px 0 5px}
+    .case-content h5{font-size:.72rem;font-weight:800;letter-spacing:.065em;text-transform:uppercase;color:var(--ink);margin:16px 0 7px}
+    .case-content h5:first-child{margin-top:0}
+    .case-content p{color:var(--sub);font-size:.81rem;line-height:1.73;margin:0}
+    .project .case-details{margin-top:21px}
+    .project .case-content p{margin:0}
+    .project .case-content h5{margin-top:15px}
+    .project .case-content h5:first-child{margin-top:0}
+    .section{padding-top:105px}
+    .hero .status{margin-bottom:24px}
+    @media(max-width:1080px){.hero{gap:28px}.two-column{gap:58px}}
+    @media(max-width:850px){
+      .hero{grid-template-columns:1fr;padding-top:58px;gap:33px}
+      .hero-text{max-width:690px}.intro-card{max-width:690px}
+      .project,.project.wide{grid-column:span 3}
+      .integration-grid{grid-template-columns:1fr 1fr}
+      .two-column{grid-template-columns:1fr;gap:24px}
+      .side-intro p{max-width:650px}
+      .section{padding-top:84px}.nav-links{gap:15px}
+    }
+    @media(max-width:650px){
+      .shell,.insurance-work{width:calc(100% - 36px)}
+      .topbar-inner{min-height:68px;gap:10px}
+      .brand{font-size:.98rem}.brand-mark{width:35px;height:35px}
+      .nav-right{gap:10px}.nav-links{gap:11px}
+      .nav-links a{font-size:.73rem}
+      .nav-links a[href="#skills"],.nav-links a[href="#education"],.nav-links a[href="#experience"]{display:none}
+      .theme-toggle{width:36px;height:36px}
+      .hero{padding-top:46px;padding-bottom:57px;gap:27px}
+      .hero h1{font-size:clamp(3.2rem,11vw,4.6rem)}
+      .hero-role{font-size:1.08rem}
+      .hero-description{font-size:.96rem}
+      .hero-footnote{font-size:.72rem;flex-wrap:wrap}
+      .intro-card{padding:28px 24px}
+      .intro-card h2{font-size:1.7rem}
+      .intro-facts div{grid-template-columns:84px 1fr;gap:8px}
+      .section{padding-top:70px}
+      .section-heading{display:block;margin-bottom:24px}
+      .section-heading p{margin-top:14px}
+      .insurance-head{display:block}
+      .insurance-head p{margin-top:10px}
+      .integration-grid,.projects-grid,.skills-layout,.education-grid{grid-template-columns:1fr}
+      .project,.project.wide{grid-column:span 1}
+      .project-visual{height:148px}.project-body{padding:21px}
+      .role{grid-template-columns:1fr}.role time{text-align:left}
+      .skill-card{min-height:auto}
+      .contact-panel{padding:35px 25px}.contact-panel h2{font-size:2.35rem}
+      .footer-inner{align-items:flex-start;flex-direction:column}.footer{padding-bottom:30px}
+    }
+    @media(max-width:380px){
+      .nav-links a[href="#projects"]{display:none}
+      .status{font-size:.67rem}.btn{padding:11px 13px;font-size:.78rem}
+    }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
-  </style>
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <a class="brand" href="#top" aria-label="Bekzat Mustafa — back to top">
-        <span class="brand-mark" aria-hidden="true">BM</span>
-        <span>bekzat.mustafa<small>systems · products · data</small></span>
-      </a>
-      <div class="nav-right">
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#projects">Work</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle colour theme">
-          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.4A8.3 8.3 0 0 1 8.6 4a8.4 8.4 0 1 0 11.4 11.4Z"/></svg>
-          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-    <div id="top" class="shell hero">
-      <div class="hero-text">
-        <div class="status">Based in Brighton, UK · University of Sussex</div>
-        <div class="eyebrow">Hi, I'm Bekzat Mustafa</div>
-        <h1>From complex requirements to <span class="accent">products that work.</span></h1>
-        <p class="hero-description">I'm a <strong>Systems &amp; Business Analyst</strong> and an <strong>MSc Data Science</strong> student at the University of Sussex. I connect business needs, technical teams and user experience to help build practical digital products.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Explore my work <span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="btn btn-outline" href="Bekzat_Mustafa_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
-        </div>
-        <p class="hero-footnote">Insurance &amp; integrations <span class="dot" aria-hidden="true"></span> Healthcare &amp; SaaS <span class="dot" aria-hidden="true"></span> Product &amp; data</p>
-      </div>
-      <aside class="impact" aria-label="Selected results from products I have worked on">
-        <div class="impact-top"><span>Selected product impact / 2025</span><span class="spark" aria-hidden="true">✳</span></div>
-        <div class="impact-title">Good analysis makes a <em>measurable difference.</em></div>
-        <div class="metric-grid">
-          <div class="metric"><b>2,000</b><span><strong>Monthly active users</strong> · TOQ power-bank rental</span></div>
-          <div class="metric"><b>1,000</b><span><strong>Weekly active users</strong> · Catholic Sports</span></div>
-          <div class="metric"><b>9</b><span><strong>Sports schools</strong> · Tapgo CRM</span></div>
-        </div>
-      </aside>
-    </div>
-
-    <div class="discipline-strip" aria-label="Specialisms">
-      <div class="shell discipline-list">
-        <span>System analysis</span><i aria-hidden="true"></i>
-        <span>API design</span><i aria-hidden="true"></i>
-        <span>Product discovery</span><i aria-hidden="true"></i>
-        <span>Data analysis</span><i aria-hidden="true"></i>
-        <span>Delivery &amp; collaboration</span>
-      </div>
-    </div>
-
-    <section class="shell section" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading">
-        <div><div class="eyebrow">01 / Selected work</div><h2 id="projects-title">Work beyond the job title.</h2></div>
-        <p>Five products across healthcare, consumer services and operations. Each brought different challenges — and something real into use.</p>
-      </div>
-      <div class="projects-grid">
-        <article class="project">
-          <div class="project-visual visual-health"><div class="project-symbol"><small>Healthcare · US</small>Open Heart</div><span class="visual-tag">B2C / Healthcare</span></div>
-          <div class="project-body">
-            <div class="project-meta">Business analysis · 2025</div>
-            <h3>Open Heart × Cardia</h3>
-            <p>Led business analysis for a healthcare product connecting pacemaker patients and cardiologists, adapting requirements for the US market with HIPAA considerations.</p>
-            <div class="project-bottom"><div class="project-impact">Hospital deployment <span>· Wisconsin</span></div><a class="project-link" href="https://portal.open-heart.ai/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Open Heart product">Visit site ↗</a></div>
-          </div>
-        </article>
-        <article class="project">
-          <div class="project-visual visual-toq"><div class="project-symbol"><small>Consumer product · Kazakhstan</small>TOQ.</div><span class="visual-tag">Rental / B2C</span></div>
-          <div class="project-body">
-            <div class="project-meta">Business &amp; product analysis · 2025</div>
-            <h3>TOQ Power-Bank Rental</h3>
-            <p>Researched the market, developed WhatsApp and Telegram bots, and planned station firmware and business-process changes for local customers.</p>
-            <div class="project-bottom"><div class="project-impact">2,000 MAU <span>· 16 stations</span></div></div>
-          </div>
-        </article>
-        <article class="project">
-          <div class="project-visual visual-crm"><div class="project-symbol"><small>Business software · Kazakhstan</small>tapgo<span aria-hidden="true">.</span></div><span class="visual-tag">SaaS / CRM</span></div>
-          <div class="project-body">
-            <div class="project-meta">Systems analysis · 2025</div>
-            <h3>Tapgo CRM</h3>
-            <p>Designed a multi-tenant CRM for sports schools, connecting subscriptions, lead management, coach compensation and financial reporting.</p>
-            <div class="project-bottom"><div class="project-impact">9 sports schools <span>· in use</span></div></div>
-          </div>
-        </article>
-        <article class="project wide">
-          <div class="project-visual visual-sports"><div class="project-symbol"><small>Community platform · US</small>Catholic Sports</div><span class="visual-tag">Mobile / Web</span></div>
-          <div class="project-body">
-            <div class="project-meta">Solution architecture &amp; analysis · 2025</div>
-            <h3>Making community operations easier</h3>
-            <p>Designed a mobile app and admin platform with scheduling, checklists and media tools for sports organisers and community staff.</p>
-            <div class="project-bottom"><div class="project-impact">1,000 WAU <span>· 70% less host/PR workload</span></div></div>
-          </div>
-        </article>
-        <article class="project wide">
-          <div class="project-visual visual-erp"><div class="project-symbol"><small>Operations · Kazakhstan</small>Halyk Nan</div><span class="visual-tag">ERP</span></div>
-          <div class="project-body">
-            <div class="project-meta">Systems &amp; business analysis · 2025</div>
-            <h3>ERP for real-world bakery operations</h3>
-            <p>Analysed end-to-end requirements and helped launch an ERP platform for bakery operations in Almaty on an accelerated timeline.</p>
-            <div class="project-bottom"><div class="project-impact">1-month launch <span>· 2 bakeries using the system</span></div></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="shell section two-column" id="experience" aria-labelledby="experience-title">
-      <div class="side-intro">
-        <div class="eyebrow">02 / Experience</div>
-        <h2 id="experience-title">Where I've put it into practice.</h2>
-        <p>From cross-functional product teams to European insurance integrations, my focus has been making requirements precise and delivery collaborative.</p>
-      </div>
-      <div class="experience-list">
-        <article class="role">
-          <div><h3>Systems / Business Analyst</h3><p class="org">simplesurance · Berlin, Germany</p></div>
-          <time datetime="2025-10">Oct 2025 – Aug 2026</time>
-          <p class="desc">Worked on Allianz Group insurance initiatives across Europe. Translated stakeholder and regulatory requirements into technical documentation and API/Swagger specifications, reviewed implementation against business rules, and aligned scope across teams.</p>
-          <div class="micro"><span>Insurance</span><span>API specifications</span><span>Stakeholder alignment</span></div>
-        </article>
-        <article class="role">
-          <div><h3>Systems / Business Analyst</h3><p class="org">Maxinum Consulting Group · Almaty</p></div>
-          <time datetime="2024-05">May 2024 – Sep 2025</time>
-          <p class="desc">Coordinated work across three development teams, gathered requirements through interviews, reviewed UX/UI decisions, and helped deliver web and mobile products using Scrum and Kanban.</p>
-          <div class="micro"><span>Requirements</span><span>UX review</span><span>Agile delivery</span></div>
-        </article>
-        <article class="role">
-          <div><h3>Project Manager</h3><p class="org">Technology Commercialization Center · Almaty</p></div>
-          <time datetime="2024-01">Jan 2024 – May 2024</time>
-          <p class="desc">Developed a business model and market analysis, managed three interns, and organised an exhibition attended by 36 potential investors.</p>
-          <div class="micro"><span>Market research</span><span>Planning</span><span>Team coordination</span></div>
-        </article>
-        <details class="earlier">
-          <summary>Earlier internships — Degusto Coffee and KMF.kz</summary>
-          <p><strong>Degusto Coffee · Product Development Analyst (Oct 2023 – Feb 2024):</strong> Studied cafés and customer needs, conducted 30 interviews and developed market positioning.</p>
-          <p><strong>KMF.kz · Intern Product Manager (Sep – Nov 2023):</strong> Tested user flows with 50 participants; registration conversion improved by 10%.</p>
-        </details>
-      </div>
-    </section>
-
-    <section class="shell section" id="skills" aria-labelledby="skills-title">
-      <div class="section-heading">
-        <div><div class="eyebrow">03 / Toolkit</div><h2 id="skills-title">Business mindset. Technical fluency.</h2></div>
-        <p>I work comfortably across product decisions, system specifications and the data behind them.</p>
-      </div>
-      <div class="skills-layout">
-        <article class="skill-card"><div class="skill-serial">01 / ANALYSIS</div><h3>Systems &amp; delivery</h3><p>Clarifying needs, modelling processes and keeping engineering teams aligned on what to build.</p><div class="tags"><span class="tag">Requirements</span><span class="tag">API / Swagger</span><span class="tag">Scrum &amp; Kanban</span><span class="tag">Prioritisation</span><span class="tag">Stakeholders</span></div></article>
-        <article class="skill-card"><div class="skill-serial">02 / ENGINEERING</div><h3>Data &amp; technology</h3><p>Hands-on familiarity with the tools and architectures used to build, query and analyse systems.</p><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">Jupyter</span><span class="tag">PostgreSQL</span><span class="tag">Django</span><span class="tag">FastAPI</span></div></article>
-        <article class="skill-card"><div class="skill-serial">03 / PRODUCT</div><h3>Product thinking</h3><p>Balancing technical feasibility with user needs, research and measurable business outcomes.</p><div class="tags"><span class="tag">Product discovery</span><span class="tag">A/B testing</span><span class="tag">UX analysis</span><span class="tag">Lean Startup</span><span class="tag">Market research</span></div></article>
-      </div>
-    </section>
-
-    <section class="shell section" id="education" aria-labelledby="education-title">
-      <div class="section-heading"><div><div class="eyebrow">04 / Learning</div><h2 id="education-title">Always building on the basics.</h2></div></div>
-      <div class="education-grid">
-        <article class="education-card"><div class="school-mark"><span class="school-logo" aria-hidden="true">S</span> Brighton · United Kingdom</div><h3>University of Sussex</h3><p>MSc Data Science. Extending my systems and product background with deeper analytical and computational skills.</p><div class="date">September 2026 – Present</div></article>
-        <article class="education-card"><div class="school-mark"><span class="school-logo" aria-hidden="true">A</span> Almaty · Kazakhstan</div><h3>Almaty Management University</h3><p>Bachelor's in Product Management, with a minor in Cinematography.</p><div class="date">2022 – 2025</div></article>
-      </div>
-      <p class="education-note">Earlier education: Nazarbayev Intellectual Schools, Aktau (A-level Certificate, 2022). Languages: Kazakh, Russian and English.</p>
-    </section>
-
-    <section class="shell section" id="about" aria-labelledby="about-title">
-      <div class="about-panel">
-        <div><div class="eyebrow">05 / A little more</div><h2 id="about-title">Curious about the full picture.</h2></div>
-        <div><p>I started in product management and gradually moved deeper into systems and business analysis. That experience taught me to see digital products from several perspectives: the people who use them, the business that relies on them and the engineers who make them possible.</p><p>Now, while studying Data Science at Sussex, I'm exploring how stronger analytical methods can help make these systems more useful, reliable and understandable.</p></div>
-      </div>
-    </section>
-
-    <section class="shell section" id="contact" aria-labelledby="contact-title">
-      <div class="contact-panel">
-        <div class="eyebrow">06 / Let's connect</div>
-        <h2 id="contact-title">Have a complex problem? <span>Let's talk.</span></h2>
-        <p>Happy to connect about systems analysis, digital products, data-driven work or interesting collaborations.</p>
-        <div class="contact-actions">
-          <a class="btn btn-lime" href="mailto:meninpowtam@gmail.com">Send an email <span class="arrow" aria-hidden="true">↗</span></a>
-          <a class="btn btn-clear" href="https://www.linkedin.com/in/bekosh/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
-          <a class="btn btn-clear" href="https://github.com/beko-o" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
-          <button class="btn btn-clear" id="copy-email" type="button" aria-label="Copy my email address">Copy email</button>
-        </div>
-        <p class="copy-feedback" id="copy-feedback" role="status" aria-live="polite"></p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="shell footer">
-    <div class="footer-inner"><span>© <span id="year">2026</span> Bekzat Mustafa · Built with HTML, CSS &amp; a little JavaScript.</span><div class="footer-links"><a href="#top">Back to top ↑</a><a href="Bekzat_Mustafa_CV.pdf" download>CV ↓</a><a href="mailto:meninpowtam@gmail.com">Email ↗</a></div></div>
-  </footer>
-  <script>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+<div class="shell topbar-inner">
+<a aria-label="Bekzat Mustafa — back to top" class="brand" href="#top">
+<span aria-hidden="true" class="brand-mark">BM</span>
+<span>bekzat.mustafa<small>systems · products · data</small></span>
+</a>
+<div class="nav-right">
+<nav aria-label="Main navigation" class="nav-links"><a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+<button aria-label="Switch to dark mode" class="theme-toggle" id="theme-toggle" title="Toggle colour theme" type="button">
+<svg aria-hidden="true" class="moon" viewbox="0 0 24 24"><path d="M20 15.4A8.3 8.3 0 0 1 8.6 4a8.4 8.4 0 1 0 11.4 11.4Z"></path></svg>
+<svg aria-hidden="true" class="sun" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+</button>
+</div>
+</div>
+</header>
+<main id="main"><div class="shell hero" id="top">
+<div class="hero-text">
+<div class="status">Based in Brighton, UK · MSc at University of Sussex</div>
+<div class="eyebrow">Hello, I'm</div>
+<h1>Bekzat <span class="accent">Mustafa.</span></h1>
+<p class="hero-role">Systems &amp; Business Analyst <span class="hero-role-separator">/</span> Data Science MSc</p>
+<p class="hero-description">I work at the intersection of <strong>business, technology and people</strong> — turning requirements into clear system designs and practical digital products. Most recently, I worked on European insurance integrations, including banking and mobility partners. I'm now studying Data Science at the University of Sussex.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#experience">Explore my experience <span aria-hidden="true" class="arrow">↗</span></a>
+<a class="btn btn-outline" download="" href="Bekzat_Mustafa_CV.pdf">Download CV <span aria-hidden="true">↓</span></a>
+</div>
+<p class="hero-footnote">Insurance &amp; APIs <span aria-hidden="true" class="dot"></span> Digital products <span aria-hidden="true" class="dot"></span> Data science</p>
+</div>
+<aside aria-label="More about Bekzat" class="intro-card">
+<div class="intro-top"><span>A little about me</span><span aria-hidden="true" class="intro-symbol">BM</span></div>
+<h2>Curious about how things <em>work together.</em></h2>
+<p>I started in product management, moved into business and systems analysis, and discovered that my favourite part is making complicated ideas understandable — for both engineers and the people using their products.</p>
+<p>I've worked across insurance, healthcare and SaaS products. These days I'm adding deeper data and machine-learning skills to that foundation.</p>
+<div class="intro-separator"></div>
+<div class="intro-facts">
+<div><span class="intro-label">Currently</span><strong>MSc Data Science · Sussex</strong></div>
+<div><span class="intro-label">Previously</span><strong>simplesurance</strong></div>
+<div><span class="intro-label">Background</span><strong>Product management &amp; Business System Analysis</strong></div>
+</div>
+</aside>
+</div><section aria-labelledby="experience-title" class="shell section two-column" id="experience">
+<div class="side-intro">
+<div class="eyebrow">01 / Experience</div>
+<h2 id="experience-title">Professional experience.</h2>
+<p>My path spans product discovery, business analysis and technical delivery — from startups to international insurance integrations.</p>
+</div>
+<div class="experience-list">
+<article class="role">
+<div><h3>Systems / Business Analyst</h3><p class="org">simplesurance · Berlin, Germany</p></div>
+<time datetime="2025-10">Oct 2025 – Aug 2026</time>
+<p class="desc">Worked on Allianz Group insurance initiatives in Europe, including integrations involving ING in the Netherlands, the National Bank of Greece and Tesla insurance journeys. Translated business and partner requirements into clear documentation and API specifications, clarified integration behaviour and reviewed implementations against agreed business rules.</p>
+<div class="micro"><span>Insurance integrations</span><span>REST / Swagger</span><span>Business rules</span><span>Stakeholder alignment</span></div>
+</article>
+<article class="role">
+<div><h3>Systems / Business Analyst</h3><p class="org">Maxinum Consulting Group · Almaty</p></div>
+<time datetime="2024-05">May 2024 – Sep 2025</time>
+<p class="desc">Coordinated work across three development teams, gathered requirements through interviews, reviewed UX/UI decisions, and helped deliver web and mobile products using Scrum and Kanban.</p>
+<div class="micro"><span>Requirements</span><span>UX review</span><span>Agile delivery</span></div>
+</article>
+<article class="role">
+<div><h3>Project Manager</h3><p class="org">Technology Commercialization Center · Almaty</p></div>
+<time datetime="2024-01">Jan 2024 – May 2024</time>
+<p class="desc">Developed a business model and market analysis, managed three interns, and organised an exhibition attended by 36 potential investors.</p>
+<div class="micro"><span>Market research</span><span>Planning</span><span>Team coordination</span></div>
+</article>
+<details class="earlier">
+<summary>Earlier internships — Degusto Coffee and KMF.kz</summary>
+<p><strong>Degusto Coffee · Product Development Analyst (Oct 2023 – Feb 2024):</strong> Studied cafés and customer needs, conducted 30 interviews and developed market positioning.</p>
+<p><strong>KMF.kz · Intern Product Manager (Sep – Nov 2023):</strong> Tested user flows with 50 participants; registration conversion improved by 10%.</p>
+</details>
+</div>
+</section>
+</div>
+</div><section aria-labelledby="education-title" class="shell section" id="education">
+<div class="section-heading"><div><div class="eyebrow">02 / Education</div><h2 id="education-title">Education.</h2></div><p>Product management background, now expanding into machine learning and data science.</p></div>
+<div class="education-grid">
+<article class="education-card"><div class="school-mark"><span aria-hidden="true" class="school-logo">S</span> Brighton · United Kingdom</div><h3>University of Sussex</h3><p>MSc Data Science. Extending my systems and product background with deeper analytical and computational skills.</p><div class="date">September 2026 – Present</div></article>
+<article class="education-card"><div class="school-mark"><span aria-hidden="true" class="school-logo">A</span> Almaty · Kazakhstan</div><h3>Almaty Management University</h3><p>Bachelor's in Product Management, with a minor in Cinematography.</p><div class="date">2022 – 2025</div></article>
+</div>
+<p class="education-note">Earlier education: Nazarbayev Intellectual Schools, Aktau (A-level Certificate, 2022). Languages: Kazakh, Russian and English.</p>
+</section><section aria-labelledby="skills-title" class="shell section" id="skills">
+<div class="section-heading"><div><div class="eyebrow">03 / Toolkit</div><h2 id="skills-title">Skills &amp; tools.</h2></div><p>My strengths combine business analysis, product thinking and practical technical knowledge.</p></div>
+<div class="skills-layout">
+<article class="skill-card"><div class="skill-serial">01 / ANALYSIS</div><h3>Systems &amp; delivery</h3><p>Clarifying needs, modelling processes and keeping engineering teams aligned on what to build.</p><div class="tags"><span class="tag">Requirements</span><span class="tag">API / Swagger</span><span class="tag">Scrum &amp; Kanban</span><span class="tag">Prioritisation</span><span class="tag">Stakeholders</span><span class="tag">REST APIs</span></div></article>
+<article class="skill-card"><div class="skill-serial">02 / ENGINEERING</div><h3>Data &amp; technology</h3><p>Hands-on familiarity with the tools and architectures used to build, query and analyse systems.</p><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">Jupyter</span><span class="tag">PostgreSQL</span><span class="tag">Django</span><span class="tag">FastAPI</span></div></article>
+<article class="skill-card"><div class="skill-serial">03 / PRODUCT</div><h3>Product thinking</h3><p>Balancing technical feasibility with user needs, research and measurable business outcomes.</p><div class="tags"><span class="tag">Product discovery</span><span class="tag">A/B testing</span><span class="tag">UX analysis</span><span class="tag">Lean Startup</span><span class="tag">Market research</span></div></article>
+</div>
+</section><section aria-labelledby="projects-title" class="shell section" id="projects">
+<div class="section-heading">
+<div><div class="eyebrow">04 / Projects</div><h2 id="projects-title">Selected projects.</h2></div>
+<p>Five products across SaaS, healthcare and consumer services. Explore each case for the problem, my role, approach and outcome.</p>
+</div>
+<div class="projects-grid">
+<article class="project">
+<div class="project-visual visual-erp"><div class="project-symbol"><small>Operations · Kazakhstan</small>Halyk Nan</div><span class="visual-tag">ERP</span></div>
+<div class="project-body"><div class="project-meta">Systems &amp; business analysis · 2025</div><h3>ERP for bakery operations</h3>
+<p>Helped take an ERP product from requirements to launch on a one-month delivery timeline.</p>
+<div class="project-bottom"><div class="project-impact">Live in 2 bakeries <span>· 1-month launch</span></div></div>
+<details class="case-details"><summary>Read case study <span aria-hidden="true">+</span></summary><div class="case-content">
+<h5>Challenge</h5><p>Translate real production and operational needs into a usable ERP solution on an accelerated timeline.</p>
+<h5>My role</h5><p>Performed system and business analysis, gathering and structuring requirements for the platform.</p>
+<h5>Approach</h5><p>Focused on clear workflows and delivery priorities so the team could implement the essential functionality quickly.</p>
+<h5>Outcome</h5><p>The ERP was launched within one month and is used by two bakery facilities in Almaty.</p>
+</div></details>
+</div>
+</article>
+<article class="project">
+<div class="project-visual visual-toq"><div class="project-symbol"><small>Consumer product · Kazakhstan</small>TOQ.</div><span class="visual-tag">Rental / B2C</span></div>
+<div class="project-body"><div class="project-meta">Product &amp; systems analysis · 2025</div><h3>TOQ power-bank rental</h3>
+<p>Localised a rental product for Kazakhstan, combining market research, conversational bots and station-related workflows.</p>
+<div class="project-bottom"><div class="project-impact">2,000 MAU <span>· 16 stations</span></div></div>
+<details class="case-details"><summary>Read case study <span aria-hidden="true">+</span></summary><div class="case-content">
+<h5>Challenge</h5><p>Shape a power-bank rental service for local customer journeys and operational constraints.</p>
+<h5>My role</h5><p>Conducted market research and developed WhatsApp and Telegram bots for the service.</p>
+<h5>Approach</h5><p>Planned firmware-related changes for charging stations and redesigned business processes for the Kazakhstan market.</p>
+<h5>Outcome</h5><p>The service supported approximately 2,000 monthly active users across 16 stations.</p>
+</div></details>
+</div>
+</article>
+<article class="project">
+<div class="project-visual visual-health"><div class="project-symbol"><small>Healthcare · United States</small>Open Heart</div><span class="visual-tag">HealthTech</span></div>
+<div class="project-body"><div class="project-meta">Business analysis · 2025</div><h3>Open Heart × Cardia</h3>
+<p>Business analysis for a healthcare product connecting pacemaker patients and cardiologists in the US.</p>
+<div class="project-bottom"><div class="project-impact">Hospital deployment <span>· Wisconsin</span></div><a class="project-link" href="https://open-heart.ai/" rel="noopener noreferrer" target="_blank">Product ↗</a></div>
+<details class="case-details"><summary>Read case study <span aria-hidden="true">+</span></summary><div class="case-content">
+<h5>Challenge</h5><p>Shape a product for two different audiences — patients with pacemakers and cardiologists — while accounting for US healthcare requirements.</p>
+<h5>My role</h5><p>Conducted business analysis from the beginning of the project and collaborated with a Milwaukee cardiologist.</p>
+<h5>Approach</h5><p>Translated clinical and patient needs into product requirements, with HIPAA-related considerations in scope.</p>
+<h5>Outcome</h5><p>The product was deployed at Froedtert Pleasant Prairie Hospital in Wisconsin.</p>
+</div></details>
+</div>
+</article>
+<article class="project wide">
+<div class="project-visual visual-sports"><div class="project-symbol"><small>Community platform · United States</small>Catholic Sports</div><span class="visual-tag">Mobile / Web</span></div>
+<div class="project-body"><div class="project-meta">Architecture &amp; analysis · 2025</div><h3>Catholic Sports platform</h3>
+<p>Designed the structure for a community mobile app and admin platform with scheduling and operational tools.</p>
+<div class="project-bottom"><div class="project-impact">1,000 WAU <span>· reported 70% less admin workload</span></div><a class="project-link" href="https://apps.apple.com/us/app/catholic-sports-league-hosts/id6746162454" rel="noopener noreferrer" target="_blank">Product ↗</a></div>
+<details class="case-details"><summary>Read case study <span aria-hidden="true">+</span></summary><div class="case-content">
+<h5>Challenge</h5><p>Make recurring sports events, communications and community operations easier to organise.</p>
+<h5>My role</h5><p>Designed the mobile-app and web-admin architecture, including scheduling, media management and checklist functions.</p>
+<h5>Approach</h5><p>Structured common organiser tasks as reusable features rather than disconnected manual processes.</p>
+<h5>Outcome</h5><p>The platform reached around 1,000 weekly active users, with reported results of 50% more positive feedback and 70% less host and PR workload.</p>
+</div></details>
+</div>
+</article>
+<article class="project wide">
+<div class="project-visual visual-crm"><div class="project-symbol"><small>Business software · Kazakhstan</small>tapgo<span aria-hidden="true">.</span></div><span class="visual-tag">CRM / SaaS</span></div>
+<div class="project-body"><div class="project-meta">End-to-end systems analysis · 2025</div><h3>Tapgo CRM for sports schools</h3>
+<p>Designed a multi-tenant CRM for managing sports subscriptions, coaches, leads and finances.</p>
+<div class="project-bottom"><div class="project-impact">9 schools <span>· in use</span></div><a class="project-link" href="https://apps.apple.com/kz/app/tap-go-app/id6504009560" rel="noopener noreferrer" target="_blank">Product ↗</a></div>
+<details class="case-details"><summary>Read case study <span aria-hidden="true">+</span></summary><div class="case-content">
+<h5>Challenge</h5><p>An existing sports subscription application needed operational tooling and clearer financial visibility for schools.</p>
+<h5>My role</h5><p>Conducted end-to-end business and system analysis and designed a connected CRM.</p>
+<h5>Approach</h5><p>Specified app-to-CRM integration, lead management, scheduling, coach compensation and financial reporting, including a multi-tenant structure.</p>
+<h5>Outcome</h5><p>The CRM is now used by nine sports schools.</p>
+</div></details>
+</div>
+</article>
+</div>
+</section><section aria-labelledby="contact-title" class="shell section" id="contact">
+<div class="contact-panel">
+<div class="eyebrow">05 / Contact</div>
+<h2 id="contact-title">Get in touch. <span>Let’s connect.</span></h2>
+<p>I'm always happy to talk about systems analysis, insurance integrations, product development and data-driven work.</p>
+<div class="contact-actions">
+<a class="btn btn-lime" href="mailto:meninpowtam@gmail.com">Send an email <span aria-hidden="true" class="arrow">↗</span></a>
+<a class="btn btn-clear" href="https://www.linkedin.com/in/bekosh/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+<a class="btn btn-clear" href="https://github.com/beko-o" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+<button aria-label="Copy my email address" class="btn btn-clear" id="copy-email" type="button">Copy email</button>
+</div>
+<p aria-live="polite" class="copy-feedback" id="copy-feedback" role="status"></p>
+</div>
+</section></main>
+<footer class="shell footer">
+<div class="footer-inner"><span>© <span id="year">2026</span> Bekzat Mustafa </span><div class="footer-links"><a href="#top">Back to top ↑</a><a download="" href="Bekzat_Mustafa_CV.pdf">CV ↓</a><a href="mailto:meninpowtam@gmail.com">Email ↗</a></div></div>
+</footer>
+<script>
     const themeBtn = document.getElementById('theme-toggle');
     const root = document.documentElement;
     function updateThemeButton() {
